@@ -416,3 +416,584 @@ WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
 2026-02-17 14:17:04.266 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.CreateUser (HealthCare.Presentation)'
 2026-02-17 14:17:04.269 +02:00 [INF] HTTP POST /api/Authentication/CreateUser responded 200 in 501.9647 ms
 2026-02-17 14:17:04.284 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7286/api/Authentication/CreateUser - 200 null application/json; charset=utf-8 526.9578ms
+2026-02-17 14:32:24.494 +02:00 [INF] App Is building...........
+2026-02-17 14:32:24.645 +02:00 [FTL] App Failed To Start..............
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in E:\HealthCareSystem\HealthCare.Presentation\Program.cs:line 40
+2026-02-17 14:32:59.394 +02:00 [INF] App Is building...........
+2026-02-17 14:32:59.558 +02:00 [FTL] App Failed To Start..............
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in E:\HealthCareSystem\HealthCare.Presentation\Program.cs:line 40
+2026-02-17 14:47:28.298 +02:00 [INF] App Is building...........
+2026-02-17 14:47:29.666 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-17 14:47:30.746 +02:00 [WRN] No store type was specified for the decimal property 'Depth' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:47:30.748 +02:00 [WRN] No store type was specified for the decimal property 'Latitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:47:30.749 +02:00 [WRN] No store type was specified for the decimal property 'Longitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:47:30.751 +02:00 [WRN] No store type was specified for the decimal property 'OxygenLevel' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:47:30.752 +02:00 [WRN] No store type was specified for the decimal property 'Pressure' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:47:30.753 +02:00 [WRN] No store type was specified for the decimal property 'Temperature' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:47:31.842 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 14:47:31.939 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 14:47:31.986 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 14:47:32.411 +02:00 [INF] App is Running..............
+2026-02-17 14:47:32.868 +02:00 [INF] Now listening on: https://localhost:7286
+2026-02-17 14:47:32.869 +02:00 [INF] Now listening on: http://localhost:5224
+2026-02-17 14:47:32.982 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-17 14:47:32.984 +02:00 [INF] Hosting environment: Development
+2026-02-17 14:47:32.985 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-02-17 14:47:53.764 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-02-17 14:47:54.077 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-02-17 14:47:54.090 +02:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-02-17 14:47:54.091 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-02-17 14:47:54.098 +02:00 [INF] HTTP GET / responded 302 in 131.7356 ms
+2026-02-17 14:47:54.113 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 359.9421ms
+2026-02-17 14:47:54.125 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-02-17 14:47:54.245 +02:00 [INF] HTTP GET /swagger/index.html responded 304 in 109.7870 ms
+2026-02-17 14:47:54.251 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 304 null null 125.9253ms
+2026-02-17 14:47:54.324 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-17 14:47:54.328 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-02-17 14:47:54.329 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-02-17 14:47:54.329 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-02-17 14:47:54.341 +02:00 [INF] HTTP GET /swagger/index.js responded 304 in 1.3015 ms
+2026-02-17 14:47:54.350 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-02-17 14:47:54.354 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 304 null null 26.2509ms
+2026-02-17 14:47:54.363 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 3.7910 ms
+2026-02-17 14:47:54.358 +02:00 [INF] HTTP GET /swagger/index.css responded 304 in 9.2724 ms
+2026-02-17 14:47:54.358 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 11.8547 ms
+2026-02-17 14:47:54.364 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-02-17 14:47:54.366 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 304 null null 16.287ms
+2026-02-17 14:47:54.387 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-02-17 14:47:54.375 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 304 null null 45.504ms
+2026-02-17 14:47:54.371 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 304 null null 41.6911ms
+2026-02-17 14:47:54.398 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 16.9287 ms
+2026-02-17 14:47:54.419 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 94.7344ms
+2026-02-17 14:47:54.423 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 304 null null 59.6995ms
+2026-02-17 14:47:54.557 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 170.0066ms
+2026-02-17 14:47:56.420 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-02-17 14:47:56.452 +02:00 [ERR] HTTP GET /swagger/v1/swagger.json responded 500 in 24.9878 ms
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - HealthCare.Presentation.Controllers.MeasurementController.getAllData (HealthCare.Presentation). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`4 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-02-17 14:47:56.531 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - HealthCare.Presentation.Controllers.MeasurementController.getAllData (HealthCare.Presentation). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`4 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-17 14:47:56.647 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 500 null text/plain; charset=utf-8 226.1841ms
+2026-02-17 14:48:39.562 +02:00 [INF] App Is building...........
+2026-02-17 14:48:40.611 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-17 14:48:49.009 +02:00 [INF] App Is building...........
+2026-02-17 14:48:50.157 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-17 14:48:50.911 +02:00 [WRN] No store type was specified for the decimal property 'Depth' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:48:50.914 +02:00 [WRN] No store type was specified for the decimal property 'Latitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:48:50.917 +02:00 [WRN] No store type was specified for the decimal property 'Longitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:48:50.918 +02:00 [WRN] No store type was specified for the decimal property 'OxygenLevel' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:48:50.920 +02:00 [WRN] No store type was specified for the decimal property 'Pressure' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:48:50.921 +02:00 [WRN] No store type was specified for the decimal property 'Temperature' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:48:51.806 +02:00 [INF] Executed DbCommand (57ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 14:48:51.931 +02:00 [INF] Executed DbCommand (38ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 14:48:51.957 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 14:48:52.269 +02:00 [INF] App is Running..............
+2026-02-17 14:48:52.529 +02:00 [INF] Now listening on: https://localhost:7286
+2026-02-17 14:48:52.531 +02:00 [INF] Now listening on: http://localhost:5224
+2026-02-17 14:48:52.701 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-17 14:48:52.703 +02:00 [INF] Hosting environment: Development
+2026-02-17 14:48:52.704 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-02-17 14:49:21.824 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-02-17 14:49:22.085 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-02-17 14:49:22.095 +02:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-02-17 14:49:22.097 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-02-17 14:49:22.102 +02:00 [INF] HTTP GET / responded 302 in 90.8282 ms
+2026-02-17 14:49:22.111 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 298.6262ms
+2026-02-17 14:49:22.119 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-02-17 14:49:22.185 +02:00 [INF] HTTP GET /swagger/index.html responded 304 in 58.2492 ms
+2026-02-17 14:49:22.190 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 304 null null 70.3786ms
+2026-02-17 14:49:22.242 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-17 14:49:22.242 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-02-17 14:49:22.242 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-02-17 14:49:22.242 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-02-17 14:49:22.257 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-02-17 14:49:22.257 +02:00 [INF] HTTP GET /swagger/index.css responded 304 in 6.1441 ms
+2026-02-17 14:49:22.257 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 8.9492 ms
+2026-02-17 14:49:22.260 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 6.3232 ms
+2026-02-17 14:49:22.284 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 23.5573 ms
+2026-02-17 14:49:22.285 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 304 null null 42.8534ms
+2026-02-17 14:49:22.287 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 304 null null 44.9817ms
+2026-02-17 14:49:22.291 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 304 null null 48.771ms
+2026-02-17 14:49:22.293 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 304 null null 36.2541ms
+2026-02-17 14:49:22.296 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-02-17 14:49:22.299 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-02-17 14:49:22.311 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 69.1514ms
+2026-02-17 14:49:22.316 +02:00 [INF] HTTP GET /swagger/index.js responded 304 in 3.1465 ms
+2026-02-17 14:49:22.332 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 304 null null 36.5209ms
+2026-02-17 14:49:22.419 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 120.2139ms
+2026-02-17 14:49:23.004 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-02-17 14:49:23.032 +02:00 [ERR] HTTP GET /swagger/v1/swagger.json responded 500 in 19.0729 ms
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - HealthCare.Presentation.Controllers.MeasurementController.getAllData (HealthCare.Presentation). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`4 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-02-17 14:49:23.103 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - HealthCare.Presentation.Controllers.MeasurementController.getAllData (HealthCare.Presentation). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`4 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-17 14:49:23.219 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 500 null text/plain; charset=utf-8 214.9109ms
+2026-02-17 14:51:22.850 +02:00 [INF] App Is building...........
+2026-02-17 14:51:23.898 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-17 14:51:24.746 +02:00 [WRN] No store type was specified for the decimal property 'Depth' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:51:24.749 +02:00 [WRN] No store type was specified for the decimal property 'Latitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:51:24.751 +02:00 [WRN] No store type was specified for the decimal property 'Longitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:51:24.754 +02:00 [WRN] No store type was specified for the decimal property 'OxygenLevel' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:51:24.756 +02:00 [WRN] No store type was specified for the decimal property 'Pressure' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:51:24.759 +02:00 [WRN] No store type was specified for the decimal property 'Temperature' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 14:51:25.694 +02:00 [INF] Executed DbCommand (69ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 14:51:25.840 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 14:51:25.875 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 14:51:26.146 +02:00 [INF] App is Running..............
+2026-02-17 14:51:26.422 +02:00 [INF] Now listening on: https://localhost:7286
+2026-02-17 14:51:26.423 +02:00 [INF] Now listening on: http://localhost:5224
+2026-02-17 14:51:26.623 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-17 14:51:26.625 +02:00 [INF] Hosting environment: Development
+2026-02-17 14:51:26.626 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-02-17 14:51:43.788 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-02-17 14:51:44.011 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-02-17 14:51:44.018 +02:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-02-17 14:51:44.019 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-02-17 14:51:44.023 +02:00 [INF] HTTP GET / responded 302 in 87.9357 ms
+2026-02-17 14:51:44.035 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 262.5142ms
+2026-02-17 14:51:44.047 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-02-17 14:51:44.133 +02:00 [INF] HTTP GET /swagger/index.html responded 304 in 74.2198 ms
+2026-02-17 14:51:44.136 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 304 null null 89.6059ms
+2026-02-17 14:51:44.192 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-02-17 14:51:44.193 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-17 14:51:44.193 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-02-17 14:51:44.201 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-02-17 14:51:44.201 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-02-17 14:51:44.217 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 12.7222 ms
+2026-02-17 14:51:44.217 +02:00 [INF] HTTP GET /swagger/index.css responded 304 in 2.0962 ms
+2026-02-17 14:51:44.260 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 36.1423 ms
+2026-02-17 14:51:44.262 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 42.1168 ms
+2026-02-17 14:51:44.262 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 304 null null 69.9335ms
+2026-02-17 14:51:44.266 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 304 null null 73.2886ms
+2026-02-17 14:51:44.270 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 304 null null 69.1705ms
+2026-02-17 14:51:44.273 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 304 null null 71.812ms
+2026-02-17 14:51:44.279 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-02-17 14:51:44.293 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 100.2325ms
+2026-02-17 14:51:44.302 +02:00 [INF] HTTP GET /swagger/index.js responded 304 in 0.6079 ms
+2026-02-17 14:51:44.324 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 304 null null 44.5879ms
+2026-02-17 14:51:44.321 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-02-17 14:51:44.428 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 107.2163ms
+2026-02-17 14:51:46.086 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-02-17 14:51:46.148 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 31.4458 ms
+2026-02-17 14:51:46.287 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 200.546ms
+2026-02-17 14:51:55.996 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/api/Measurement/GetAllData - null null
+2026-02-17 14:51:56.005 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MeasurementController.getAllData (HealthCare.Presentation)'
+2026-02-17 14:51:56.046 +02:00 [INF] Route matched with {action = "getAllData", controller = "Measurement", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getAllData() on controller HealthCare.Presentation.Controllers.MeasurementController (HealthCare.Presentation).
+2026-02-17 14:51:56.189 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Depth], [m].[DiastolicPressure], [m].[FallDetected], [m].[HeartRate], [m].[Latitude], [m].[Longitude], [m].[OxygenLevel], [m].[Pressure], [m].[RecordedAt], [m].[SystolicPressure], [m].[Temperature], [m].[UserId]
+FROM [Measurements] AS [m]
+2026-02-17 14:51:56.242 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[HealthCare.Domain.Entities.SensorMeasurement, HealthCare.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-17 14:51:56.277 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MeasurementController.getAllData (HealthCare.Presentation) in 220.4907ms
+2026-02-17 14:51:56.279 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MeasurementController.getAllData (HealthCare.Presentation)'
+2026-02-17 14:51:56.283 +02:00 [INF] HTTP GET /api/Measurement/GetAllData responded 200 in 278.8599 ms
+2026-02-17 14:51:56.291 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/api/Measurement/GetAllData - 200 null application/json; charset=utf-8 295.2409ms
+2026-02-17 14:52:30.916 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/api/Measurement/GetDataByUserId/b592d297-0a01-41f6-801e-063c29e92e48 - null null
+2026-02-17 14:52:30.928 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MeasurementController.getDataByUserId (HealthCare.Presentation)'
+2026-02-17 14:52:30.946 +02:00 [INF] Route matched with {action = "getDataByUserId", controller = "Measurement", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getDataByUserId(System.Guid) on controller HealthCare.Presentation.Controllers.MeasurementController (HealthCare.Presentation).
+2026-02-17 14:52:31.045 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[Depth], [m].[DiastolicPressure], [m].[FallDetected], [m].[HeartRate], [m].[Latitude], [m].[Longitude], [m].[OxygenLevel], [m].[Pressure], [m].[RecordedAt], [m].[SystolicPressure], [m].[Temperature], [m].[UserId]
+FROM [Measurements] AS [m]
+WHERE [m].[UserId] = @userId
+2026-02-17 14:52:31.053 +02:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-02-17 14:52:31.056 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MeasurementController.getDataByUserId (HealthCare.Presentation) in 102.0391ms
+2026-02-17 14:52:31.058 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MeasurementController.getDataByUserId (HealthCare.Presentation)'
+2026-02-17 14:52:31.062 +02:00 [INF] HTTP GET /api/Measurement/GetDataByUserId/b592d297-0a01-41f6-801e-063c29e92e48 responded 404 in 138.1116 ms
+2026-02-17 14:52:31.068 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/api/Measurement/GetDataByUserId/b592d297-0a01-41f6-801e-063c29e92e48 - 404 null text/plain; charset=utf-8 152.2604ms
+2026-02-17 14:52:47.061 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/api/Measurement/GetDataByUserId/8bf7fee4-a680-4f71-beea-9eacd2c37dae - null null
+2026-02-17 14:52:47.069 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MeasurementController.getDataByUserId (HealthCare.Presentation)'
+2026-02-17 14:52:47.072 +02:00 [INF] Route matched with {action = "getDataByUserId", controller = "Measurement", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getDataByUserId(System.Guid) on controller HealthCare.Presentation.Controllers.MeasurementController (HealthCare.Presentation).
+2026-02-17 14:52:47.108 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[Depth], [m].[DiastolicPressure], [m].[FallDetected], [m].[HeartRate], [m].[Latitude], [m].[Longitude], [m].[OxygenLevel], [m].[Pressure], [m].[RecordedAt], [m].[SystolicPressure], [m].[Temperature], [m].[UserId]
+FROM [Measurements] AS [m]
+WHERE [m].[UserId] = @userId
+2026-02-17 14:52:47.118 +02:00 [INF] Executing OkObjectResult, writing value of type 'HealthCare.Domain.Entities.SensorMeasurement'.
+2026-02-17 14:52:47.120 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MeasurementController.getDataByUserId (HealthCare.Presentation) in 43.6123ms
+2026-02-17 14:52:47.124 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MeasurementController.getDataByUserId (HealthCare.Presentation)'
+2026-02-17 14:52:47.127 +02:00 [INF] HTTP GET /api/Measurement/GetDataByUserId/8bf7fee4-a680-4f71-beea-9eacd2c37dae responded 200 in 58.6861 ms
+2026-02-17 14:52:47.131 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/api/Measurement/GetDataByUserId/8bf7fee4-a680-4f71-beea-9eacd2c37dae - 200 null application/json; charset=utf-8 69.9288ms
+2026-02-17 19:01:51.493 +02:00 [INF] App Is building...........
+2026-02-17 19:01:51.783 +02:00 [FTL] App Failed To Start..............
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in E:\HealthCareSystem\HealthCare.Presentation\Program.cs:line 40
+2026-02-17 19:03:30.416 +02:00 [INF] App Is building...........
+2026-02-17 19:03:33.919 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-17 19:03:35.855 +02:00 [WRN] No store type was specified for the decimal property 'Depth' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 19:03:35.863 +02:00 [WRN] No store type was specified for the decimal property 'Latitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 19:03:35.876 +02:00 [WRN] No store type was specified for the decimal property 'Longitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 19:03:35.882 +02:00 [WRN] No store type was specified for the decimal property 'OxygenLevel' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 19:03:35.889 +02:00 [WRN] No store type was specified for the decimal property 'Pressure' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 19:03:35.893 +02:00 [WRN] No store type was specified for the decimal property 'Temperature' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 19:03:38.869 +02:00 [INF] Executed DbCommand (186ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 19:03:39.019 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 19:03:39.725 +02:00 [INF] Executed DbCommand (78ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3);
+2026-02-17 19:03:39.841 +02:00 [INF] Executed DbCommand (87ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 19:03:39.931 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 19:03:40.032 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3);
+2026-02-17 19:03:40.306 +02:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 19:03:40.722 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedUserName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @normalizedUserName
+2026-02-17 19:03:40.832 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 19:03:41.054 +02:00 [INF] Executed DbCommand (79ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (DbType = Guid), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserId], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2026-02-17 19:03:41.159 +02:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedRoleName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedRoleName
+2026-02-17 19:03:41.492 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@p='?' (Size = 450), @p1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @p AND [a].[RoleId] = @p1
+2026-02-17 19:03:41.577 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedRoleName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedRoleName
+2026-02-17 19:03:41.722 +02:00 [INF] Executed DbCommand (84ms) [Parameters=[@normalizedUserName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @normalizedUserName
+2026-02-17 19:03:41.825 +02:00 [INF] Executed DbCommand (78ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 19:03:42.069 +02:00 [INF] Executed DbCommand (88ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p17='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p18='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserId] = @p15, [UserName] = @p16
+OUTPUT 1
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+2026-02-17 19:03:42.972 +02:00 [INF] App is Running..............
+2026-02-17 19:03:43.880 +02:00 [INF] Now listening on: https://localhost:7286
+2026-02-17 19:03:43.882 +02:00 [INF] Now listening on: http://localhost:5224
+2026-02-17 19:03:43.998 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-17 19:03:44.000 +02:00 [INF] Hosting environment: Development
+2026-02-17 19:03:44.001 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-02-17 19:04:39.199 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-02-17 19:04:39.741 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-02-17 19:04:39.769 +02:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-02-17 19:04:39.771 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-02-17 19:04:39.777 +02:00 [INF] HTTP GET / responded 302 in 221.0557 ms
+2026-02-17 19:04:39.797 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 621.1721ms
+2026-02-17 19:04:39.825 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-02-17 19:04:39.936 +02:00 [INF] HTTP GET /swagger/index.html responded 304 in 97.7731 ms
+2026-02-17 19:04:39.940 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 304 null null 114.8761ms
+2026-02-17 19:04:40.019 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-17 19:04:40.019 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-02-17 19:04:40.019 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-02-17 19:04:40.022 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-02-17 19:04:40.020 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-02-17 19:04:40.043 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-02-17 19:04:40.050 +02:00 [INF] HTTP GET /swagger/index.css responded 304 in 16.5352 ms
+2026-02-17 19:04:40.052 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 2.5537 ms
+2026-02-17 19:04:40.052 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 7.2117 ms
+2026-02-17 19:04:40.053 +02:00 [INF] HTTP GET /swagger/index.js responded 304 in 0.6105 ms
+2026-02-17 19:04:40.058 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 304 null null 38.5305ms
+2026-02-17 19:04:40.061 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 304 null null 40.8988ms
+2026-02-17 19:04:40.064 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 304 null null 42.8374ms
+2026-02-17 19:04:40.067 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 23.8029 ms
+2026-02-17 19:04:40.068 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 304 null null 24.7584ms
+2026-02-17 19:04:40.075 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-02-17 19:04:40.097 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 78.4356ms
+2026-02-17 19:04:40.099 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 304 null null 79.1048ms
+2026-02-17 19:04:40.279 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 204.2063ms
+2026-02-17 19:04:42.391 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-02-17 19:04:42.462 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 50.4571 ms
+2026-02-17 19:04:42.479 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 88.945ms
+2026-02-17 19:06:45.229 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/CreateUser - application/json 120
+2026-02-17 19:06:45.263 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.CreateUser (HealthCare.Presentation)'
+2026-02-17 19:06:45.334 +02:00 [INF] Route matched with {action = "CreateUser", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(HealthCare.Domain.User.CreateUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-02-17 19:06:46.111 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 19:06:46.419 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedUserName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @normalizedUserName
+2026-02-17 19:06:46.501 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 19:06:46.595 +02:00 [INF] Executed DbCommand (81ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (DbType = Guid), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserId], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2026-02-17 19:06:46.605 +02:00 [INF] User Ibrahim created successfully
+2026-02-17 19:06:46.693 +02:00 [INF] Executed DbCommand (82ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 19:06:46.834 +02:00 [INF] Executed DbCommand (74ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2026-02-17 19:06:46.956 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedRoleName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedRoleName
+2026-02-17 19:06:47.056 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@p='?' (Size = 450), @p1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @p AND [a].[RoleId] = @p1
+2026-02-17 19:06:47.140 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedRoleName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedRoleName
+2026-02-17 19:06:47.229 +02:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedUserName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @normalizedUserName
+2026-02-17 19:06:47.315 +02:00 [INF] Executed DbCommand (77ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 19:06:47.469 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p17='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p18='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserId] = @p15, [UserName] = @p16
+OUTPUT 1
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+2026-02-17 19:06:47.580 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-17 19:06:47.605 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.AuthenticationController.CreateUser (HealthCare.Presentation) in 2256.3137ms
+2026-02-17 19:06:47.613 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.CreateUser (HealthCare.Presentation)'
+2026-02-17 19:06:47.618 +02:00 [INF] HTTP POST /api/Authentication/CreateUser responded 200 in 2356.0937 ms
+2026-02-17 19:06:47.630 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7286/api/Authentication/CreateUser - 200 null application/json; charset=utf-8 2400.9157ms
+2026-02-17 20:15:36.097 +02:00 [INF] App Is building...........
+2026-02-17 20:15:37.984 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-17 20:15:39.836 +02:00 [WRN] No store type was specified for the decimal property 'Depth' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:15:39.842 +02:00 [WRN] No store type was specified for the decimal property 'Latitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:15:39.846 +02:00 [WRN] No store type was specified for the decimal property 'Longitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:15:39.848 +02:00 [WRN] No store type was specified for the decimal property 'OxygenLevel' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:15:39.852 +02:00 [WRN] No store type was specified for the decimal property 'Pressure' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:15:39.855 +02:00 [WRN] No store type was specified for the decimal property 'Temperature' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:16:22.171 +02:00 [INF] App Is building...........
+2026-02-17 20:16:23.380 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-17 20:16:24.382 +02:00 [WRN] No store type was specified for the decimal property 'Depth' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:16:24.385 +02:00 [WRN] No store type was specified for the decimal property 'Latitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:16:24.389 +02:00 [WRN] No store type was specified for the decimal property 'Longitude' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:16:24.391 +02:00 [WRN] No store type was specified for the decimal property 'OxygenLevel' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:16:24.393 +02:00 [WRN] No store type was specified for the decimal property 'Pressure' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:16:24.395 +02:00 [WRN] No store type was specified for the decimal property 'Temperature' on entity type 'SensorMeasurement'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-02-17 20:16:26.318 +02:00 [INF] Executed DbCommand (211ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 20:16:26.625 +02:00 [INF] Executed DbCommand (88ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-17 20:16:26.781 +02:00 [INF] Executed DbCommand (81ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 20:16:27.397 +02:00 [INF] App is Running..............
+2026-02-17 20:16:27.900 +02:00 [INF] Now listening on: https://localhost:7286
+2026-02-17 20:16:27.902 +02:00 [INF] Now listening on: http://localhost:5224
+2026-02-17 20:16:28.024 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-17 20:16:28.025 +02:00 [INF] Hosting environment: Development
+2026-02-17 20:16:28.027 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-02-17 20:16:39.573 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-02-17 20:16:40.040 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-02-17 20:16:40.124 +02:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-02-17 20:16:40.126 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-02-17 20:16:40.131 +02:00 [INF] HTTP GET / responded 302 in 226.6909 ms
+2026-02-17 20:16:40.150 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 611.8894ms
+2026-02-17 20:16:40.151 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-02-17 20:16:40.352 +02:00 [INF] HTTP GET /swagger/index.html responded 304 in 170.4808 ms
+2026-02-17 20:16:40.360 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 304 null null 209.3079ms
+2026-02-17 20:16:40.441 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-02-17 20:16:40.441 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-17 20:16:40.441 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-02-17 20:16:40.442 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-02-17 20:16:40.442 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-02-17 20:16:40.460 +02:00 [INF] HTTP GET /swagger/index.js responded 304 in 0.8934 ms
+2026-02-17 20:16:40.468 +02:00 [INF] HTTP GET /swagger/index.css responded 304 in 4.9512 ms
+2026-02-17 20:16:40.470 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 22.3317 ms
+2026-02-17 20:16:40.475 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 304 null null 33.3731ms
+2026-02-17 20:16:40.490 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-02-17 20:16:40.481 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 304 null null 40.3505ms
+2026-02-17 20:16:40.485 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 14.6196 ms
+2026-02-17 20:16:40.478 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 304 null null 36.0465ms
+2026-02-17 20:16:40.512 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 16.9772 ms
+2026-02-17 20:16:40.516 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-02-17 20:16:40.520 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 304 null null 77.6498ms
+2026-02-17 20:16:40.536 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 94.7513ms
+2026-02-17 20:16:40.527 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 304 null null 37.8356ms
+2026-02-17 20:16:40.663 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 147.7956ms
+2026-02-17 20:16:42.824 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-02-17 20:16:42.861 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 31.2288 ms
+2026-02-17 20:16:42.876 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.2871ms
+2026-02-17 20:16:51.880 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/api/Measurement/GetMyData - null null
+2026-02-17 20:16:51.945 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-02-17 20:16:51.979 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-02-17 20:16:51.981 +02:00 [INF] HTTP GET /api/Measurement/GetMyData responded 401 in 56.6690 ms
+2026-02-17 20:16:51.986 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/api/Measurement/GetMyData - 401 0 null 106.2461ms
+2026-02-17 20:17:39.715 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/Login - application/json 59
+2026-02-17 20:17:39.729 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-02-17 20:17:39.800 +02:00 [INF] Route matched with {action = "Login", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(HealthCare.Domain.User.LoginUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-02-17 20:17:40.345 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 20:17:40.621 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 20:17:40.859 +02:00 [INF] Executed DbCommand (112ms) [Parameters=[@userId='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @userId
+2026-02-17 20:17:40.957 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 20:17:41.045 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@userId='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @userId
+2026-02-17 20:17:41.131 +02:00 [INF] Executed DbCommand (78ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-17 20:17:41.560 +02:00 [INF] Executed DbCommand (91ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([Id], [CreateDate], [ExpireDate], [Token], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-02-17 20:17:41.618 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-17 20:17:41.645 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation) in 1828.2754ms
+2026-02-17 20:17:41.649 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-02-17 20:17:41.654 +02:00 [INF] HTTP POST /api/Authentication/Login responded 200 in 1929.3330 ms
+2026-02-17 20:17:41.664 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7286/api/Authentication/Login - 200 null application/json; charset=utf-8 1948.9621ms
+2026-02-17 20:17:50.180 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/api/Measurement/GetMyData - null null
+2026-02-17 20:17:50.194 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-02-17 20:17:50.205 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-02-17 20:17:50.211 +02:00 [INF] HTTP GET /api/Measurement/GetMyData responded 401 in 20.3346 ms
+2026-02-17 20:17:50.216 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/api/Measurement/GetMyData - 401 0 null 35.9804ms
+2026-02-17 20:18:27.149 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/api/Measurement/GetAllData - null null
+2026-02-17 20:18:27.259 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-02-17 20:18:27.264 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-02-17 20:18:27.265 +02:00 [INF] HTTP GET /api/Measurement/GetAllData responded 401 in 104.2324 ms
+2026-02-17 20:18:27.268 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/api/Measurement/GetAllData - 401 0 null 118.9446ms
+2026-02-17 20:18:45.453 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/api/Measurement/GetMyData - null null
+2026-02-17 20:18:45.469 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-02-17 20:18:45.472 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-02-17 20:18:45.479 +02:00 [INF] HTTP GET /api/Measurement/GetMyData responded 401 in 10.7619 ms
+2026-02-17 20:18:45.484 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/api/Measurement/GetMyData - 401 0 null 30.171ms
