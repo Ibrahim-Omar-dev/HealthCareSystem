@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="HealthCare.Application/HealthCare.Application.csproj" />
+  <Project Path="HealthCare.Domain/HealthCare.Domain.csproj" />
+  <Project Path="HealthCare.infr/HealthCare.Infreastructure.csproj" />
+  <Project Path="HealthCare.Presentation/HealthCare.Presentation.csproj" />
+</Solution>
