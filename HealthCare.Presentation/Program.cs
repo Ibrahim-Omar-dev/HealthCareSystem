@@ -22,6 +22,15 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 Log.Logger.Information("App Is building...........");
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy => policy.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
+
+
 // Add services
 builder.Services.AddInfreastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
@@ -39,29 +48,25 @@ try
 {
     var app = builder.Build();
 
-    // Seed roles and admin user
     using (var scope = app.Services.CreateScope())
     {
         var services = scope.ServiceProvider;
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
         var userManager = services.GetRequiredService<UserManager<AppUser>>();
-        await SeedRoles.SeedRolesAsync(roleManager, userManager);
+        await SeedRoles.SeedRolesAsync(roleManager, userManager); 
     }
 
     app.UseSerilogRequestLogging();
 
-    if (app.Environment.IsDevelopment())
-    {
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
             c.RoutePrefix = "swagger";
         });
-    }
 
     app.MapGet("/", () => Results.Redirect("/swagger"));
     app.UseHttpsRedirection();
-
+    app.UseCors("AllowAll");
     app.UseInfreastructureServices();
     app.UseAuthentication();
     app.UseAuthorization();

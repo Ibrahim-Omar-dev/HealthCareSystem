@@ -8,7 +8,7 @@ namespace HealthCare.Domain.Entities.Identity
     public class AppUser : IdentityUser
     {
         [Key]
-        public Guid UserId { get; set; }=Guid.NewGuid();
-       
+        public Guid UserId { get; set; } = Guid.NewGuid();
+        public string DisplayName { get; set; }
     }
 }

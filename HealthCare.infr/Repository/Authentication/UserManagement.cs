@@ -1,4 +1,5 @@
 ﻿using HealthCare.Domain.Entities.Identity;
+using HealthCare.Domain.Enums;
 using HealthCare.Domain.Interface;
 using HealthCare.Domain.User;
 using HealthCare.Infreastructure.Data;
@@ -28,12 +29,19 @@ namespace E_Commerce.Infreastructure.Repository.Authentication
 
             var user = new AppUser
             {
-                UserName = createUser.UserName,
+                UserName = createUser.Email,      
                 Email = createUser.Email,
+                DisplayName = createUser.UserName 
             };
 
             var result = await userManager.CreateAsync(user, createUser.Password);
-            return result.Succeeded;
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                    Console.WriteLine($"Code: {error.Code} | Description: {error.Description}");
+                return false;
+            }
+            return true;
         }
 
         public async Task<bool> DeleteUserByEmail(string email)

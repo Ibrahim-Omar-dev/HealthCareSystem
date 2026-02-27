@@ -52,6 +52,7 @@ namespace HealthCare.Infreastructure.DependencyInjection
                 options.Lockout.AllowedForNewUsers = true;
 
                 options.User.RequireUniqueEmail = true;
+                options.User.AllowedUserNameCharacters = null;
 
                 options.SignIn.RequireConfirmedEmail = false;
                 options.SignIn.RequireConfirmedPhoneNumber = false;
@@ -107,8 +108,8 @@ namespace HealthCare.Infreastructure.DependencyInjection
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("admin"));
-                options.AddPolicy("RequireUserRole", policy => policy.RequireRole("user"));
+                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("RequireUserRole", policy => policy.RequireRole("User"));
             });
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

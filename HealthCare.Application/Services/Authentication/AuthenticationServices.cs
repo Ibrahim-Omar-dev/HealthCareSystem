@@ -8,6 +8,7 @@ using HealthCare.Domain.User;
 using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using HealthCare.Domain.Enums;
 
 
 namespace HealthCare.Application.Services.Authentication
@@ -50,30 +51,34 @@ namespace HealthCare.Application.Services.Authentication
             }
 
             var result = await userManagement.CreateUser(createUser);
-
-            if (result)
-            {
-                logger.LogInformation("User {UserName} created successfully", createUser.UserName);
-            }
-            else
+            if (!result)
             {
                 logger.LogWarning("Failed to create user {UserName}", createUser.UserName);
+                return false;
             }
-            var _user=await userManagement.GetUserByEmail(createUser.Email);
-            var users=await userManagement.GetAllUser();
-            bool assignRoleResult=await roleManagement.AddUserRole(_user,users.Count() > 1 ? "user":"admin");
+
+            logger.LogInformation("User {UserName} created successfully", createUser.UserName);
+
+            var user = await userManagement.GetUserByEmail(createUser.Email);
+            if (user == null)
+            {
+                logger.LogWarning("User {UserName} not found after creation", createUser.UserName);
+                return false;
+            }
+
+            var allUsers = await userManagement.GetAllUser();
+            var role = allUsers.Count() > 1 ? Role.User : Role.Admin;
+
+            var assignRoleResult = await roleManagement.AddUserRole(user, role);
             if (!assignRoleResult)
             {
-                var removeResult=await userManagement.DeleteUserByEmail(createUser.Email);
-                if (!removeResult)
-                {
-                    logger.LogWarning("Failed to assign role to user {UserName}", createUser.UserName);
-                    return false; 
-                }
+                logger.LogWarning("Failed to assign role to user {UserName} — rolling back", createUser.UserName);
+                await userManagement.DeleteUserByEmail(createUser.Email);
+                return false;
             }
-                return result;
-        }
 
+            return true;
+        }
         public async Task<LoginResponse> Login(LoginUser loginUser)
         {
             var validationResult = await validationServices.ValidateAsync(loginUser, loginValidator);
@@ -146,6 +151,39 @@ namespace HealthCare.Application.Services.Authentication
                 Token = newJwtToken,
                 RefreshToken = newRefreshToken
             };
+        }
+
+        public async Task<string?> GeneratePasswordResetToken(string email)
+        {
+            var user = await userManagement.GetUserByEmail(email);
+            if (user == null)
+            {
+                logger.LogWarning("Password reset requested for non-existing email: {Email}", email);
+                return null;
+            }
+
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            return token;
+        }
+
+        public async Task<bool> ResetPassword(ResetPassword resetPassword)
+        {
+            var user = await userManagement.GetUserByEmail(resetPassword.Email);
+            if (user == null)
+            {
+                logger.LogWarning("Password reset attempted for non-existing email: {Email}", resetPassword.Email);
+                return false;
+            }
+
+            var result = await userManager.ResetPasswordAsync(user, resetPassword.Token, resetPassword.NewPassword);
+            if (!result.Succeeded)
+            {
+                logger.LogWarning("Password reset failed for {Email}: {Errors}", resetPassword.Email, string.Join(";", result.Errors.Select(e => e.Description)));
+                return false;
+            }
+
+            logger.LogInformation("Password reset successful for {Email}", resetPassword.Email);
+            return true;
         }
     }
 

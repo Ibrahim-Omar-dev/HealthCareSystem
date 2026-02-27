@@ -65,6 +65,35 @@ namespace HealthCare.Presentation.Controllers
                 message = result.Message
             });
         }
+
+
+        [HttpPost("ForgetPassword")]
+        public async Task<IActionResult> ForgetPassword([FromBody] string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                return BadRequest(new { success = false, message = "Email is required" });
+
+            var token = await authenticationService.GeneratePasswordResetToken(email);
+            if (token == null)
+                return BadRequest(new { success = false, message = "Email not found" });
+
+     
+            return Ok(new { success = true, message = "Password reset token generated", token });
+        }
+
+        // Reset password using the token received via email.
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPassword resetPassword)
+        {
+            if (resetPassword == null)
+                return BadRequest(new { success = false, message = "Invalid request" });
+
+            var result = await authenticationService.ResetPassword(resetPassword);
+            if (!result)
+                return BadRequest(new { success = false, message = "Failed to reset password. Token may be invalid or expired." });
+
+            return Ok(new { success = true, message = "Password has been reset successfully" });
+        }
         
     }
 }

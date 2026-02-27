@@ -1,0 +1,383 @@
+2026-02-27 23:28:50.218 +02:00 [INF] App Is building...........
+2026-02-27 23:28:53.762 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-27 23:29:26.328 +02:00 [ERR] An error occurred using the connection to database 'HealthCare' on server 'tcp:projectteam.database.windows.net,1433'.
+2026-02-27 23:29:26.396 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'HealthCare.Infreastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=656; handshake=506; [Login] initialization=4; authentication=10; [Post-Login] complete=28732; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c17f6560-ea42-4a85-852e-8fee929da087
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=656; handshake=506; [Login] initialization=4; authentication=10; [Post-Login] complete=28732; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c17f6560-ea42-4a85-852e-8fee929da087
+Error Number:-2,State:0,Class:11
+2026-02-27 23:29:26.871 +02:00 [FTL] App Failed To Start..............
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=656; handshake=506; [Login] initialization=4; authentication=10; [Post-Login] complete=28732; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.RoleManager`1.RoleExistsAsync(String roleName)
+   at HealthCare.Infrastructure.Seeder.SeedRoles.SeedRolesAsync(RoleManager`1 roleManager, UserManager`1 userManager) in E:\HealthCareSystem\HealthCare.infr\Seeder\SeedRoles.cs:line 17
+   at Program.<Main>$(String[] args) in E:\HealthCareSystem\HealthCare.Presentation\Program.cs:line 57
+ClientConnectionId:c17f6560-ea42-4a85-852e-8fee929da087
+Error Number:-2,State:0,Class:11
+2026-02-27 23:40:51.462 +02:00 [INF] App Is building...........
+2026-02-27 23:40:52.675 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-27 23:40:56.561 +02:00 [INF] Executed DbCommand (233ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:40:56.810 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:40:56.940 +02:00 [INF] Executed DbCommand (79ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:40:57.441 +02:00 [INF] App is Running..............
+2026-02-27 23:40:58.033 +02:00 [INF] Now listening on: https://localhost:7286
+2026-02-27 23:40:58.036 +02:00 [INF] Now listening on: http://localhost:5224
+2026-02-27 23:40:58.164 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-27 23:40:58.166 +02:00 [INF] Hosting environment: Development
+2026-02-27 23:40:58.169 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-02-27 23:41:50.018 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-02-27 23:41:50.590 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-02-27 23:41:50.610 +02:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-02-27 23:41:50.612 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-02-27 23:41:50.617 +02:00 [INF] HTTP GET / responded 302 in 149.6434 ms
+2026-02-27 23:41:50.638 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 648.0545ms
+2026-02-27 23:41:50.646 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger - null null
+2026-02-27 23:41:50.660 +02:00 [INF] HTTP GET /swagger responded 301 in 1.7573 ms
+2026-02-27 23:41:50.663 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger - 301 null null 16.6855ms
+2026-02-27 23:41:50.669 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-02-27 23:41:50.793 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 119.5626 ms
+2026-02-27 23:41:50.806 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-02-27 23:41:50.806 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-02-27 23:41:50.808 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-02-27 23:41:50.811 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-02-27 23:41:50.830 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 200 null text/html;charset=utf-8 160.0524ms
+2026-02-27 23:41:50.845 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-02-27 23:41:50.851 +02:00 [INF] HTTP GET /swagger/index.js responded 200 in 1.3428 ms
+2026-02-27 23:41:50.854 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 200 null application/javascript;charset=utf-8 8.6783ms
+2026-02-27 23:41:50.856 +02:00 [INF] HTTP GET /swagger/index.css responded 200 in 21.0864 ms
+2026-02-27 23:41:50.858 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-27 23:41:50.860 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 200 152 text/css 53.5671ms
+2026-02-27 23:41:50.871 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-02-27 23:41:50.878 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 44.7232 ms
+2026-02-27 23:41:50.885 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 200 26248 text/css 79.0399ms
+2026-02-27 23:41:50.886 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 43.8726 ms
+2026-02-27 23:41:50.892 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 200 77848 text/javascript 81.0743ms
+2026-02-27 23:41:50.893 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 53.9533 ms
+2026-02-27 23:41:50.924 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 200 424871 text/javascript 115.9341ms
+2026-02-27 23:41:50.896 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 38.447ms
+2026-02-27 23:41:51.199 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 327.9372ms
+2026-02-27 23:41:51.428 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-02-27 23:41:51.465 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 32.6316 ms
+2026-02-27 23:41:51.466 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/favicon-32x32.png - null null
+2026-02-27 23:41:51.470 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 41.9137ms
+2026-02-27 23:41:51.491 +02:00 [INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 17.1994 ms
+2026-02-27 23:41:51.493 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/favicon-32x32.png - 200 628 image/png 26.99ms
+2026-02-27 23:42:53.673 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/CreateUser - application/json 129
+2026-02-27 23:42:53.690 +02:00 [INF] CORS policy execution successful.
+2026-02-27 23:42:53.698 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.CreateUser (HealthCare.Presentation)'
+2026-02-27 23:42:53.832 +02:00 [INF] Route matched with {action = "CreateUser", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(HealthCare.Domain.User.CreateUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-02-27 23:42:54.547 +02:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:42:54.963 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[@normalizedUserName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @normalizedUserName
+2026-02-27 23:42:55.059 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:42:55.083 +02:00 [WRN] Failed to create user Ibrahim
+2026-02-27 23:42:55.166 +02:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:42:55.296 +02:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2026-02-27 23:51:42.004 +02:00 [INF] App Is building...........
+2026-02-27 23:51:42.876 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-27 23:51:45.410 +02:00 [INF] Executed DbCommand (194ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:51:45.606 +02:00 [INF] Executed DbCommand (78ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:51:45.703 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:51:45.809 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:51:46.203 +02:00 [INF] Executed DbCommand (84ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3);
+2026-02-27 23:51:46.338 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:51:46.422 +02:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:51:46.508 +02:00 [INF] Executed DbCommand (78ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3);
+2026-02-27 23:51:46.626 +02:00 [INF] Executed DbCommand (77ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:51:47.033 +02:00 [INF] App is Running..............
+2026-02-27 23:51:47.439 +02:00 [INF] Now listening on: https://localhost:7286
+2026-02-27 23:51:47.442 +02:00 [INF] Now listening on: http://localhost:5224
+2026-02-27 23:51:47.508 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-27 23:51:47.510 +02:00 [INF] Hosting environment: Development
+2026-02-27 23:51:47.512 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-02-27 23:52:06.562 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-02-27 23:52:06.809 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-02-27 23:52:06.815 +02:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-02-27 23:52:06.817 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-02-27 23:52:06.821 +02:00 [INF] HTTP GET / responded 302 in 97.6501 ms
+2026-02-27 23:52:06.829 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 273.8281ms
+2026-02-27 23:52:06.842 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-02-27 23:52:06.912 +02:00 [INF] HTTP GET /swagger/index.html responded 304 in 61.2777 ms
+2026-02-27 23:52:06.915 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 304 null null 72.5996ms
+2026-02-27 23:52:06.978 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-27 23:52:06.979 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-02-27 23:52:06.979 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-02-27 23:52:06.980 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-02-27 23:52:07.000 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 2.1925 ms
+2026-02-27 23:52:07.007 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 304 null null 26.8787ms
+2026-02-27 23:52:07.002 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 8.4025 ms
+2026-02-27 23:52:07.000 +02:00 [INF] HTTP GET /swagger/index.css responded 304 in 9.5907 ms
+2026-02-27 23:52:07.025 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 304 null null 45.3855ms
+2026-02-27 23:52:07.029 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-02-27 23:52:07.015 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 304 null null 35.9415ms
+2026-02-27 23:52:07.041 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-02-27 23:52:07.015 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 36.4777ms
+2026-02-27 23:52:07.013 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-02-27 23:52:07.043 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 9.7539 ms
+2026-02-27 23:52:07.067 +02:00 [INF] HTTP GET /swagger/index.js responded 304 in 0.7701 ms
+2026-02-27 23:52:07.078 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 304 null null 64.9098ms
+2026-02-27 23:52:07.070 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 304 null null 41.0348ms
+2026-02-27 23:52:07.201 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 160.1331ms
+2026-02-27 23:52:07.526 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-02-27 23:52:07.593 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 59.7364 ms
+2026-02-27 23:52:07.598 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 71.9431ms
+2026-02-27 23:52:41.670 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/CreateUser - application/json 129
+2026-02-27 23:52:41.763 +02:00 [INF] CORS policy execution successful.
+2026-02-27 23:52:41.771 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.CreateUser (HealthCare.Presentation)'
+2026-02-27 23:52:41.840 +02:00 [INF] Route matched with {action = "CreateUser", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(HealthCare.Domain.User.CreateUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-02-27 23:52:42.474 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:52:42.838 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedUserName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @normalizedUserName
+2026-02-27 23:52:42.931 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:52:42.983 +02:00 [WRN] Failed to create user Ibrahim
+2026-02-27 23:52:43.069 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:52:43.213 +02:00 [INF] Executed DbCommand (77ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2026-02-27 23:55:03.943 +02:00 [INF] App Is building...........
+2026-02-27 23:55:04.862 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-27 23:55:06.910 +02:00 [INF] Executed DbCommand (195ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:55:07.105 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:55:07.189 +02:00 [INF] Executed DbCommand (79ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:55:07.325 +02:00 [INF] Executed DbCommand (122ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-02-27 23:55:07.516 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:55:07.972 +02:00 [INF] App is Running..............
+2026-02-27 23:55:08.219 +02:00 [INF] Now listening on: https://localhost:7286
+2026-02-27 23:55:08.221 +02:00 [INF] Now listening on: http://localhost:5224
+2026-02-27 23:55:08.282 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-27 23:55:08.283 +02:00 [INF] Hosting environment: Development
+2026-02-27 23:55:08.284 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-02-27 23:55:24.095 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-02-27 23:55:24.342 +02:00 [INF] HTTP GET /swagger/index.html responded 304 in 90.1914 ms
+2026-02-27 23:55:24.358 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 304 null null 273.4585ms
+2026-02-27 23:55:24.408 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-27 23:55:24.408 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-02-27 23:55:24.408 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-02-27 23:55:24.487 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-02-27 23:55:24.490 +02:00 [INF] HTTP GET /swagger/index.css responded 304 in 59.2691 ms
+2026-02-27 23:55:24.490 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-02-27 23:55:24.500 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 5.7592 ms
+2026-02-27 23:55:24.516 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 9.9611 ms
+2026-02-27 23:55:24.519 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 304 null null 111.5448ms
+2026-02-27 23:55:24.559 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 37.0273 ms
+2026-02-27 23:55:24.560 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 304 null null 152.9963ms
+2026-02-27 23:55:24.563 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 304 null null 76.1217ms
+2026-02-27 23:55:24.567 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-02-27 23:55:24.569 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 304 null null 78.6342ms
+2026-02-27 23:55:24.573 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-02-27 23:55:24.590 +02:00 [INF] HTTP GET /swagger/index.js responded 304 in 1.1356 ms
+2026-02-27 23:55:24.602 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 194.0646ms
+2026-02-27 23:55:24.615 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 304 null null 48.3779ms
+2026-02-27 23:55:24.689 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 115.682ms
+2026-02-27 23:55:24.946 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-02-27 23:55:24.947 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/favicon-32x32.png - null null
+2026-02-27 23:55:24.956 +02:00 [INF] HTTP GET /swagger/favicon-32x32.png responded 304 in 0.2378 ms
+2026-02-27 23:55:24.966 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/favicon-32x32.png - 304 null null 19.0574ms
+2026-02-27 23:55:25.025 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 72.2697 ms
+2026-02-27 23:55:25.032 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 85.9861ms
+2026-02-27 23:55:37.172 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/CreateUser - application/json 129
+2026-02-27 23:55:37.194 +02:00 [INF] CORS policy execution successful.
+2026-02-27 23:55:37.333 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.CreateUser (HealthCare.Presentation)'
+2026-02-27 23:55:37.385 +02:00 [INF] Route matched with {action = "CreateUser", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(HealthCare.Domain.User.CreateUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-02-27 23:55:38.011 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:55:38.444 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedUserName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @normalizedUserName
+2026-02-27 23:55:38.535 +02:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:55:38.562 +02:00 [WRN] Failed to create user Ibrahim
+2026-02-27 23:55:38.644 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-02-27 23:55:38.788 +02:00 [INF] Executed DbCommand (77ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
