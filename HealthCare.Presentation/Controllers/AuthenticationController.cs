@@ -1,4 +1,5 @@
 ﻿using HealthCare.Application.Services.Interfaces.IAuthentication;
+using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.User;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,12 @@ namespace HealthCare.Presentation.Controllers
     public class AuthenticationController : ControllerBase
     {
         private readonly IAuthenticationServices authenticationService;
+        private readonly HealthCare.Infreastructure.Services.IGoogleAuthorization googleAuthorization;
 
-        public AuthenticationController(IAuthenticationServices authenticationService)
+        public AuthenticationController(IAuthenticationServices authenticationService, HealthCare.Infreastructure.Services.IGoogleAuthorization googleAuthorization)
         {
             this.authenticationService = authenticationService;
+            this.googleAuthorization = googleAuthorization;
         }
         [HttpPost("CreateUser")]
         public async Task<IActionResult> CreateUser(CreateUser createUser)
@@ -65,35 +68,100 @@ namespace HealthCare.Presentation.Controllers
                 message = result.Message
             });
         }
+        // POST api/Authentication/ForgotPassword
+        // Body: { "email": "user@example.com" }
+        //[HttpPost("ForgotPassword")]
+        //public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequest request)
+        //{
+        //    if (string.IsNullOrWhiteSpace(request.Email))
+        //        return BadRequest(new { success = false, message = "Email is required." });
 
+        //    await authenticationService.ForgotPasswordAsync(request.Email);
 
-        [HttpPost("ForgetPassword")]
-        public async Task<IActionResult> ForgetPassword([FromBody] string email)
-        {
-            if (string.IsNullOrEmpty(email))
-                return BadRequest(new { success = false, message = "Email is required" });
+        //    // Always return OK to prevent email enumeration
+        //    return Ok(new { success = true, message = "If that email is registered, a reset link has been sent." });
+        //}
 
-            var token = await authenticationService.GeneratePasswordResetToken(email);
-            if (token == null)
-                return BadRequest(new { success = false, message = "Email not found" });
+        //// POST api/Authentication/SendLoginCode
+        //// Body: { "email":"user@example.com" }
+        //[HttpPost("SendLoginCode")]
+        //public async Task<IActionResult> SendLoginCode([FromBody] ForgotPasswordRequest request)
+        //{
+        //    if (string.IsNullOrWhiteSpace(request.Email))
+        //        return BadRequest(new { success = false, message = "Email is required." });
 
-     
-            return Ok(new { success = true, message = "Password reset token generated", token });
-        }
+        //    var ok = await authenticationService.SendLoginCodeAsync(request.Email);
+        //    if (!ok)
+        //        return StatusCode(500, new { success = false, message = "Failed to send login code." });
 
-        // Reset password using the token received via email.
-        [HttpPost("ResetPassword")]
-        public async Task<IActionResult> ResetPassword([FromBody] ResetPassword resetPassword)
-        {
-            if (resetPassword == null)
-                return BadRequest(new { success = false, message = "Invalid request" });
+        //    return Ok(new { success = true, message = "If the email exists, a login code has been sent." });
+        //}
 
-            var result = await authenticationService.ResetPassword(resetPassword);
-            if (!result)
-                return BadRequest(new { success = false, message = "Failed to reset password. Token may be invalid or expired." });
+        //// POST api/Authentication/LoginWithCode
+        //// Body: { "email":"user@example.com", "code":"123456" }
+        //[HttpPost("LoginWithCode")]
+        //public async Task<IActionResult> LoginWithCode([FromBody] HealthCare.Domain.Entities.Identity.LoginWithCodeRequest request)
+        //{
+        //    if (string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Code))
+        //        return BadRequest(new { success = false, message = "Email and code are required." });
 
-            return Ok(new { success = true, message = "Password has been reset successfully" });
-        }
-        
+        //    var result = await authenticationService.LoginWithCodeAsync(request.Email, request.Code);
+
+        //    if (result.Issucess)
+        //    {
+        //        return Ok(new
+        //        {
+        //            isSuccess = result.Issucess,
+        //            message = result.Message,
+        //            token = result.Token,
+        //            refreshToken = result.RefreshToken
+        //        });
+        //    }
+
+        //    return BadRequest(new { isSuccess = result.Issucess, message = result.Message });
+        //}
+
+        //// POST api/Authentication/ResetPassword
+        //// Body: { "token": "abc123...", "newPassword": "MyNewPass123!" }
+        //[HttpPost("ResetPassword")]
+        //public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
+        //{
+        //    if (string.IsNullOrWhiteSpace(request.Token) || string.IsNullOrWhiteSpace(request.NewPassword))
+        //        return BadRequest(new { success = false, message = "Token and new password are required." });
+
+        //    var (isSuccess, message) = await authenticationService.ResetPasswordAsync(request.Token, request.NewPassword);
+
+        //    return isSuccess
+        //        ? Ok(new { success = true, message })
+        //        : BadRequest(new { success = false, message });
+        //}
+
+        //// POST api/Authentication/LoginWithGoogle
+        //// Body: { "code": "authorization_code_from_google" }
+        //[HttpPost("LoginWithGoogle")]
+        //public async Task<IActionResult> LoginWithGoogle([FromBody] string code)
+        //{
+        //    if (string.IsNullOrWhiteSpace(code))
+        //        return BadRequest(new { success = false, message = "Authorization code is required." });
+
+        //    var userInfo = await googleAuthorization.ExchangeCodeForUserInfo(code);
+        //    if (userInfo == null)
+        //        return BadRequest(new { success = false, message = "Failed to exchange code for user info." });
+
+        //    var result = await authenticationService.ExternalLogin(userInfo.Email, userInfo.Name);
+
+        //    if (result.Issucess)
+        //    {
+        //        return Ok(new
+        //        {
+        //            isSuccess = result.Issucess,
+        //            message = result.Message,
+        //            token = result.Token,
+        //            refreshToken = result.RefreshToken
+        //        });
+        //    }
+
+        //    return BadRequest(new { isSuccess = result.Issucess, message = result.Message });
+        //}
     }
 }

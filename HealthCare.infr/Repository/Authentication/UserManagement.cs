@@ -31,7 +31,10 @@ namespace E_Commerce.Infreastructure.Repository.Authentication
             {
                 UserName = createUser.Email,      
                 Email = createUser.Email,
-                DisplayName = createUser.UserName 
+                DisplayName = createUser.UserName,
+                Gender = createUser.Gender,
+                BloodType = createUser.BloodType,
+                DateOfBirth=createUser.DateOfBirth,
             };
 
             var result = await userManager.CreateAsync(user, createUser.Password);

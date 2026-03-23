@@ -1,0 +1,253 @@
+2026-03-01 02:07:01.797 +02:00 [INF] App Is building...........
+2026-03-01 02:07:02.189 +02:00 [FTL] App Failed To Start..............
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in E:\HealthCareSystem\HealthCare.Presentation\Program.cs:line 49
+2026-03-01 02:07:14.371 +02:00 [INF] App Is building...........
+2026-03-01 02:07:14.491 +02:00 [FTL] App Failed To Start..............
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in E:\HealthCareSystem\HealthCare.Presentation\Program.cs:line 49
+2026-03-01 02:07:35.521 +02:00 [INF] App Is building...........
+2026-03-01 02:07:35.647 +02:00 [FTL] App Failed To Start..............
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in E:\HealthCareSystem\HealthCare.Presentation\Program.cs:line 49
+2026-03-01 02:08:32.222 +02:00 [INF] App Is building...........
+2026-03-01 02:08:32.340 +02:00 [FTL] App Failed To Start..............
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in E:\HealthCareSystem\HealthCare.Presentation\Program.cs:line 49
+2026-03-01 02:08:51.662 +02:00 [INF] App Is building...........
+2026-03-01 02:08:54.179 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-01 02:08:57.225 +02:00 [INF] Executed DbCommand (192ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-03-01 02:08:57.459 +02:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-03-01 02:08:57.537 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-03-01 02:08:57.614 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-03-01 02:08:57.736 +02:00 [INF] Executed DbCommand (80ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:08:58.160 +02:00 [INF] App is Running..............
+2026-03-01 02:08:58.610 +02:00 [INF] Now listening on: https://localhost:7286
+2026-03-01 02:08:58.611 +02:00 [INF] Now listening on: http://localhost:5224
+2026-03-01 02:08:58.726 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-01 02:08:58.727 +02:00 [INF] Hosting environment: Development
+2026-03-01 02:08:58.730 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-03-01 02:09:09.774 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-03-01 02:09:11.289 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-03-01 02:09:11.403 +02:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-03-01 02:09:11.405 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-03-01 02:09:11.410 +02:00 [INF] HTTP GET / responded 302 in 399.2654 ms
+2026-03-01 02:09:11.431 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 1676.3739ms
+2026-03-01 02:09:11.464 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-03-01 02:09:11.777 +02:00 [INF] HTTP GET /swagger/index.html responded 304 in 263.4957 ms
+2026-03-01 02:09:11.797 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 304 null null 333.2964ms
+2026-03-01 02:09:11.858 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-01 02:09:11.875 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-03-01 02:09:11.876 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-03-01 02:09:11.876 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-03-01 02:09:11.939 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 25.8368 ms
+2026-03-01 02:09:11.941 +02:00 [INF] HTTP GET /swagger/index.css responded 304 in 35.5321 ms
+2026-03-01 02:09:11.953 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 304 null null 78.0876ms
+2026-03-01 02:09:11.943 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 304 null null 66.8517ms
+2026-03-01 02:09:11.970 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-03-01 02:09:11.959 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-01 02:09:11.975 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 51.1749 ms
+2026-03-01 02:09:12.000 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 304 null null 123.316ms
+2026-03-01 02:09:11.996 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 8.0967 ms
+2026-03-01 02:09:12.021 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 304 null null 61.4601ms
+2026-03-01 02:09:12.011 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 152.1934ms
+2026-03-01 02:09:12.017 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-03-01 02:09:11.984 +02:00 [INF] HTTP GET /swagger/index.js responded 304 in 0.8980 ms
+2026-03-01 02:09:12.062 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 304 null null 91.7227ms
+2026-03-01 02:09:12.356 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 339.0995ms
+2026-03-01 02:09:12.683 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-03-01 02:09:12.715 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 27.8244 ms
+2026-03-01 02:09:12.723 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 38.3445ms
+2026-03-01 02:09:45.503 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/Login - application/json 67
+2026-03-01 02:09:45.552 +02:00 [INF] CORS policy execution successful.
+2026-03-01 02:09:45.556 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-03-01 02:09:45.623 +02:00 [INF] Route matched with {action = "Login", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(HealthCare.Domain.User.LoginUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-03-01 02:09:46.004 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:09:46.125 +02:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType2`2[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-01 02:09:46.151 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation) in 513.128ms
+2026-03-01 02:09:46.154 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-03-01 02:09:46.158 +02:00 [INF] HTTP POST /api/Authentication/Login responded 400 in 612.0063 ms
+2026-03-01 02:09:46.167 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7286/api/Authentication/Login - 400 null application/json; charset=utf-8 664.1092ms
+2026-03-01 02:10:38.995 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/Login - application/json 67
+2026-03-01 02:10:39.005 +02:00 [INF] CORS policy execution successful.
+2026-03-01 02:10:39.013 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-03-01 02:10:39.018 +02:00 [INF] Route matched with {action = "Login", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(HealthCare.Domain.User.LoginUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-03-01 02:10:39.135 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:10:39.222 +02:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType2`2[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-01 02:10:39.226 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation) in 203.677ms
+2026-03-01 02:10:39.228 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-03-01 02:10:39.230 +02:00 [INF] HTTP POST /api/Authentication/Login responded 400 in 226.7333 ms
+2026-03-01 02:10:39.235 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7286/api/Authentication/Login - 400 null application/json; charset=utf-8 240.0039ms
+2026-03-01 02:11:22.584 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/Login - application/json 67
+2026-03-01 02:11:22.592 +02:00 [INF] CORS policy execution successful.
+2026-03-01 02:11:22.595 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-03-01 02:11:22.598 +02:00 [INF] Route matched with {action = "Login", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(HealthCare.Domain.User.LoginUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-03-01 02:11:46.311 +02:00 [INF] Executed DbCommand (92ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:12:38.118 +02:00 [INF] App Is building...........
+2026-03-01 02:12:39.508 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-01 02:12:42.963 +02:00 [INF] Executed DbCommand (198ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-03-01 02:12:43.190 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-03-01 02:12:43.268 +02:00 [INF] Executed DbCommand (71ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-03-01 02:12:43.345 +02:00 [INF] Executed DbCommand (71ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-03-01 02:12:43.459 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:12:43.905 +02:00 [INF] App is Running..............
+2026-03-01 02:12:44.546 +02:00 [INF] Now listening on: https://localhost:7286
+2026-03-01 02:12:44.548 +02:00 [INF] Now listening on: http://localhost:5224
+2026-03-01 02:12:44.805 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-01 02:12:44.806 +02:00 [INF] Hosting environment: Development
+2026-03-01 02:12:44.808 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-03-01 02:12:50.680 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-03-01 02:12:50.981 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-03-01 02:12:50.989 +02:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-03-01 02:12:50.990 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-03-01 02:12:50.993 +02:00 [INF] HTTP GET / responded 302 in 87.9429 ms
+2026-03-01 02:12:51.001 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 332.6049ms
+2026-03-01 02:12:51.012 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-03-01 02:12:51.185 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 164.0113 ms
+2026-03-01 02:12:51.238 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-01 02:12:51.252 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-03-01 02:12:51.253 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-03-01 02:12:51.260 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 200 null text/html;charset=utf-8 247.8612ms
+2026-03-01 02:12:51.285 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-03-01 02:12:51.278 +02:00 [INF] HTTP GET /swagger/index.css responded 304 in 5.4880 ms
+2026-03-01 02:12:51.278 +02:00 [INF] HTTP GET /swagger/swagger-ui.css responded 304 in 12.6762 ms
+2026-03-01 02:12:51.285 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-01 02:12:51.295 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 304 null null 42.909ms
+2026-03-01 02:12:51.300 +02:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 304 in 8.1328 ms
+2026-03-01 02:12:51.300 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 304 null null 47.7397ms
+2026-03-01 02:12:51.344 +02:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 304 in 38.6469 ms
+2026-03-01 02:12:51.347 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-03-01 02:12:51.350 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 304 null null 64.796ms
+2026-03-01 02:12:51.355 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-03-01 02:12:51.360 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 304 null null 74.5216ms
+2026-03-01 02:12:51.364 +02:00 [INF] HTTP GET /swagger/index.js responded 304 in 0.7638 ms
+2026-03-01 02:12:51.379 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 16531 application/javascript; charset=utf-8 140.2867ms
+2026-03-01 02:12:51.383 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 304 null null 36.0717ms
+2026-03-01 02:12:51.479 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 123.399ms
+2026-03-01 02:12:51.831 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-03-01 02:12:51.893 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/favicon-32x32.png - null null
+2026-03-01 02:12:51.894 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 57.7492 ms
+2026-03-01 02:12:51.897 +02:00 [INF] HTTP GET /swagger/favicon-32x32.png responded 304 in 0.3895 ms
+2026-03-01 02:12:51.901 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 69.4038ms
+2026-03-01 02:12:51.911 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/favicon-32x32.png - 304 null null 17.6456ms
+2026-03-01 02:13:04.846 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/Login - application/json 68
+2026-03-01 02:13:04.875 +02:00 [INF] CORS policy execution successful.
+2026-03-01 02:13:04.893 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-03-01 02:13:04.944 +02:00 [INF] Route matched with {action = "Login", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(HealthCare.Domain.User.LoginUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-03-01 02:13:18.385 +02:00 [INF] Executed DbCommand (1,536ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:13:34.497 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:13:35.813 +02:00 [INF] Executed DbCommand (94ms) [Parameters=[@userId='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @userId
+2026-03-01 02:13:55.933 +02:00 [INF] Executed DbCommand (3,755ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:13:56.014 +02:00 [INF] Executed DbCommand (71ms) [Parameters=[@userId='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @userId
+2026-03-01 02:13:56.092 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:14:17.673 +02:00 [INF] Executed DbCommand (1,497ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([Id], [CreateDate], [ExpireDate], [Token], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-03-01 02:14:42.716 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`4[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-01 02:14:42.737 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation) in 97778.663ms
+2026-03-01 02:14:42.741 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-03-01 02:14:42.744 +02:00 [INF] HTTP POST /api/Authentication/Login responded 200 in 97872.8500 ms
+2026-03-01 02:14:42.788 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7286/api/Authentication/Login - 200 null application/json; charset=utf-8 97942.8175ms
+2026-03-01 02:15:00.574 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7286/api/Authentication/ForgotPassword - application/json 40
+2026-03-01 02:15:00.627 +02:00 [INF] CORS policy execution successful.
+2026-03-01 02:15:00.642 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.ForgotPassword (HealthCare.Presentation)'
+2026-03-01 02:15:00.668 +02:00 [INF] Route matched with {action = "ForgotPassword", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(HealthCare.Domain.Entities.Identity.ForgotPasswordRequest) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-03-01 02:15:00.807 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserId], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-03-01 02:15:00.930 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@userId='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Expiry], [p].[Token], [p].[UserId]
+FROM [PasswordResetTokens] AS [p]
+WHERE [p].[UserId] = @userId
+2026-03-01 02:15:01.086 +02:00 [INF] Executed DbCommand (78ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [PasswordResetTokens] ([Expiry], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);

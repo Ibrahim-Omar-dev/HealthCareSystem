@@ -1,13 +1,16 @@
-﻿using E_Commerce.Infreastructure.Repository;
-using E_Commerce.Infreastructure.Repository.Authentication;
+﻿using E_Commerce.Infreastructure.Repository.Authentication;
 using HealthCare.Application.Services.Interfaces;
 using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.Interface;
 using HealthCare.Domain.IRepository;
+using HealthCare.Infrastructure.Repositories;
+using HealthCare.Infrastructure.Services;
 using HealthCare.Infreastructure.Data;
-using HealthCare.Infreastructure.MiddleWare;
-using HealthCare.Infreastructure.Repository.Authentication;
 using HealthCare.Infreastructure.Logging;
+using HealthCare.Infreastructure.MiddleWare;
+using HealthCare.Infreastructure.Repository;
+using HealthCare.Infreastructure.Repository.Authentication;
+using HealthCare.Infreastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -15,9 +18,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-
 using System.Text;
-using HealthCare.Infreastructure.Repository;
 
 namespace HealthCare.Infreastructure.DependencyInjection
 {
@@ -75,7 +76,7 @@ namespace HealthCare.Infreastructure.DependencyInjection
             .AddJwtBearer(options =>
             {
                 options.SaveToken = true;
-                options.RequireHttpsMetadata = true; 
+                options.RequireHttpsMetadata = false;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -118,6 +119,10 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<IUserManagement, UserManagement>();
             services.AddScoped<IRoleManagement, RoleManagement>();
             services.AddScoped<ITokenManagement, TokenManagement>();
+            services.AddScoped<IPasswordResetRepository, PasswordResetRepository>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IGoogleAuthorization, GoogleAuthorization>();
+
           //services.AddScoped<IPaymentServices, StripePaymentMethod>();
 
             return services;

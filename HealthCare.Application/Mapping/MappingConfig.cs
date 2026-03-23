@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using HealthCare.Application.Dto.Cart;
-using HealthCare.Domain.Entities.Cart;
 using HealthCare.Domain.Entities.Identity;
+using HealthCare.Domain.Entities.Profile;
 using HealthCare.Domain.User;
 
 namespace HealthCare.Application.Mapping
@@ -14,10 +13,7 @@ namespace HealthCare.Application.Mapping
 
             CreateMap<AppUser, CreateUser>().ReverseMap();
             CreateMap<AppUser, LoginUser>().ReverseMap();
-
-            CreateMap<GetPaymentMethod, PaymentMethod>().ReverseMap();
-
-            CreateMap<Achieve, CreateAcheive>().ReverseMap();
+            CreateMap<AppUser, EditUserData>().ReverseMap();
         }
     }
 }

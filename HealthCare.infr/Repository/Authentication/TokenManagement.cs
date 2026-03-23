@@ -35,7 +35,7 @@ namespace HealthCare.Infreastructure.Repository.Authentication
 
         public string generateToken(IEnumerable<Claim> claim)
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF32.GetBytes(config["JwtSettings:SecretKey"]!));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JwtSettings:SecretKey"]!));
             var cred=new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
             var expiration=DateTime.Now.AddHours(2);
             var token = new JwtSecurityToken(
