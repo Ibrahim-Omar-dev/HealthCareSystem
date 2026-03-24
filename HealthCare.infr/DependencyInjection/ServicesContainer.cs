@@ -4,13 +4,11 @@ using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.Interface;
 using HealthCare.Domain.IRepository;
 using HealthCare.Infrastructure.Repositories;
-using HealthCare.Infrastructure.Services;
 using HealthCare.Infreastructure.Data;
 using HealthCare.Infreastructure.Logging;
 using HealthCare.Infreastructure.MiddleWare;
 using HealthCare.Infreastructure.Repository;
 using HealthCare.Infreastructure.Repository.Authentication;
-using HealthCare.Infreastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -120,8 +118,6 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<IRoleManagement, RoleManagement>();
             services.AddScoped<ITokenManagement, TokenManagement>();
             services.AddScoped<IPasswordResetRepository, PasswordResetRepository>();
-            services.AddScoped<IEmailService, EmailService>();
-            services.AddScoped<IGoogleAuthorization, GoogleAuthorization>();
 
           //services.AddScoped<IPaymentServices, StripePaymentMethod>();
 

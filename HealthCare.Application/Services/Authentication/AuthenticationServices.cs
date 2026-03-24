@@ -24,15 +24,13 @@ namespace HealthCare.Application.Services.Authentication
         private readonly IUserManagement userManagement;
     private readonly IRoleManagement roleManagement;
     private readonly ILogger<AuthenticationServices> logger;
-    private readonly IPasswordResetRepository passwordResetRepository;
-    private readonly IEmailService emailService;
-
+        
         public AuthenticationServices(IValidationServices validationServices, IValidator<CreateUser> createValidator,
             IValidator<LoginUser> loginValidator, ITokenManagement tokenManagement,
             UserManager<AppUser> userManager,
-            IMapper mapper, IUserManagement userManagement, IRoleManagement roleManagement, ILogger<AuthenticationServices> logger,
-            IPasswordResetRepository passwordResetRepository,
-            IEmailService emailService)
+            IMapper mapper, IUserManagement userManagement, IRoleManagement roleManagement, ILogger<AuthenticationServices> logger
+
+            )
         {
             this.validationServices = validationServices;
             this.loginValidator = loginValidator;
@@ -43,8 +41,6 @@ namespace HealthCare.Application.Services.Authentication
             this.userManagement = userManagement;
             this.roleManagement = roleManagement;
             this.logger = logger;
-            this.passwordResetRepository = passwordResetRepository;
-            this.emailService = emailService;
         }
 
         public async Task<LoginResponse> ExternalLogin(string email, string? userName)
@@ -211,157 +207,6 @@ namespace HealthCare.Application.Services.Authentication
                 Token = newJwtToken,
                 RefreshToken = newRefreshToken
             };
-        }
-        public async Task<bool> ForgotPasswordAsync(string email)
-        {
-            try
-            {
-                var user = await userManagement.GetUserByEmail(email);
-
-                // Always return true to prevent email enumeration
-                if (user == null)
-                {
-                    logger.LogWarning("Password reset requested for non-existent email: {Email}", email);
-                    return true;
-                }
-
-                // Generate secure token
-                var token = Convert.ToHexString(System.Security.Cryptography.RandomNumberGenerator.GetBytes(32));
-                var expiry = DateTime.UtcNow.AddHours(1);
-
-                await passwordResetRepository.SaveResetTokenAsync(user.Id, token, expiry);
-
-   
-                var resetLink = $"https://yourfrontend.com/reset-password?token={token}";
-
-                await emailService.SendPasswordResetEmailAsync(email, resetLink);
-
-                logger.LogInformation("Password reset email sent to {Email}", email);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                logger.LogError(ex, "Error sending password reset email to {Email}", email);
-                return false;
-            }
-        }
-
-        public async Task<(bool IsSuccess, string Message)> ResetPasswordAsync(string token, string newPassword)
-        {
-            try
-            {
-                var record = await passwordResetRepository.GetResetTokenAsync(token);
-
-                if (record == null)
-                    return (false, "Invalid or expired reset token.");
-
-                if (record.Value.Expiry < DateTime.UtcNow)
-                {
-                    await passwordResetRepository.DeleteResetTokenAsync(token);
-                    return (false, "Reset token has expired. Please request a new one.");
-                }
-
-                var user = await userManagement.GetUserById(record.Value.UserId);
-                if (user == null)
-                    return (false, "User not found.");
-
-                // Reset password using Identity (handles hashing automatically)
-                var resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
-                var result = await userManager.ResetPasswordAsync(user, resetToken, newPassword);
-
-                if (!result.Succeeded)
-                {
-                    var errors = string.Join(", ", result.Errors.Select(e => e.Description));
-                    logger.LogWarning("Password reset failed for user {UserId}: {Errors}", user.Id, errors);
-                    return (false, $"Password reset failed: {errors}");
-                }
-
-                // Invalidate the token after successful reset
-                await passwordResetRepository.DeleteResetTokenAsync(token);
-
-                logger.LogInformation("Password reset successfully for user {UserId}", user.Id);
-                return (true, "Password has been reset successfully.");
-            }
-            catch (Exception ex)
-            {
-                logger.LogError(ex, "Error resetting password with token {Token}", token);
-                return (false, "An error occurred while resetting the password.");
-            }
-        }
-
-        public async Task<bool> SendLoginCodeAsync(string email)
-        {
-            try
-            {
-                var user = await userManagement.GetUserByEmail(email);
-                // don't reveal whether the email exists
-                if (user == null)
-                {
-                    logger.LogWarning("Login code requested for non-existent email: {Email}", email);
-                    return true;
-                }
-
-                var rng = new Random();
-                var code = rng.Next(100000, 999999).ToString();
-                var expiry = DateTime.UtcNow.AddMinutes(10);
-
-                await passwordResetRepository.SaveResetTokenAsync(user.Id, code, expiry);
-
-                var subject = "Your login code";
-                var body = $"Your login code is: {code}. It will expire in 10 minutes.";
-                await emailService.SendEmailAsync(email, subject, body);
-
-                logger.LogInformation("Login code sent to {Email}", email);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                logger.LogError(ex, "Error sending login code to {Email}", email);
-                return false;
-            }
-        }
-
-        public async Task<LoginResponse> LoginWithCodeAsync(string email, string code)
-        {
-            try
-            {
-                var user = await userManagement.GetUserByEmail(email);
-                if (user == null)
-                    return new LoginResponse { Issucess = false, Message = "Invalid code or email" };
-
-                var record = await passwordResetRepository.GetResetTokenAsync(code);
-                if (record == null || record.Value.UserId != user.Id)
-                    return new LoginResponse { Issucess = false, Message = "Invalid code or email" };
-
-                if (record.Value.Expiry < DateTime.UtcNow)
-                {
-                    await passwordResetRepository.DeleteResetTokenAsync(code);
-                    return new LoginResponse { Issucess = false, Message = "Code expired" };
-                }
-
-                var claims = await userManagement.GetUserClaims(user.Email!);
-                string jwtToken = tokenManagement.generateToken(claims);
-                var refreshToken = tokenManagement.GetRefreshToken();
-
-                var saveTokenResult = await tokenManagement.AddRefreshToken(user.Id, refreshToken);
-                if (!saveTokenResult)
-                    return new LoginResponse { Issucess = false, Message = "Internal error occurred while authentication" };
-
-                await passwordResetRepository.DeleteResetTokenAsync(code);
-
-                return new LoginResponse
-                {
-                    Issucess = true,
-                    Message = "Successful Login",
-                    Token = jwtToken,
-                    RefreshToken = refreshToken
-                };
-            }
-            catch (Exception ex)
-            {
-                logger.LogError(ex, "Error during login with code for {Email}", email);
-                return new LoginResponse { Issucess = false, Message = "An error occurred" };
-            }
         }
 
     }

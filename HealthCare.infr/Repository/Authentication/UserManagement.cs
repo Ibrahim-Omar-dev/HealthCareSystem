@@ -84,6 +84,11 @@ namespace E_Commerce.Infreastructure.Repository.Authentication
                 new Claim(ClaimTypes.Email,user.Email!),
                 new Claim(ClaimTypes.NameIdentifier,user.Id),
                 new Claim(ClaimTypes.Role,roleName!),
+                new("userId",                  user.UserId.ToString()),
+         
+                new("gender",                  user.Gender?.ToString()    ?? ""),
+                new("bloodType",               user.BloodType?.ToString() ?? ""),
+                new("dateOfBirth",             user.DateOfBirth?.ToString("yyyy-MM-dd"))
             };
 
             return claims;

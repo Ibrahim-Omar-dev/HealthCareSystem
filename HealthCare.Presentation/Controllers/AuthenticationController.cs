@@ -1,7 +1,13 @@
 ﻿using HealthCare.Application.Services.Interfaces.IAuthentication;
 using HealthCare.Domain.Entities.Identity;
+using HealthCare.Domain.Interface;
 using HealthCare.Domain.User;
+using HealthCare.Infreastructure.Data;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace HealthCare.Presentation.Controllers
 {
@@ -10,12 +16,24 @@ namespace HealthCare.Presentation.Controllers
     public class AuthenticationController : ControllerBase
     {
         private readonly IAuthenticationServices authenticationService;
-        private readonly HealthCare.Infreastructure.Services.IGoogleAuthorization googleAuthorization;
+        private readonly IConfiguration _config;
+        private readonly AppDbContext _db;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly ITokenManagement token;
 
-        public AuthenticationController(IAuthenticationServices authenticationService, HealthCare.Infreastructure.Services.IGoogleAuthorization googleAuthorization)
+
+        public AuthenticationController(IAuthenticationServices authenticationService, IConfiguration config,
+                AppDbContext db, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager
+                , ITokenManagement token
+           )
         {
             this.authenticationService = authenticationService;
-            this.googleAuthorization = googleAuthorization;
+            _config = config;
+            _db = db;
+            _userManager = userManager;
+            _signInManager = signInManager;
+            this.token = token;
         }
         [HttpPost("CreateUser")]
         public async Task<IActionResult> CreateUser(CreateUser createUser)
@@ -50,7 +68,7 @@ namespace HealthCare.Presentation.Controllers
         [HttpGet("RefreshToken/{refreshToken}")]
         public async Task<IActionResult> ReviveToken(string refreshToken)
         {
-            var result=await authenticationService.ReviveToken(refreshToken);
+            var result = await authenticationService.ReviveToken(refreshToken);
             if (result.Issucess)
             {
                 return Ok(new
@@ -68,6 +86,105 @@ namespace HealthCare.Presentation.Controllers
                 message = result.Message
             });
         }
+
+        [HttpGet("google/login")]
+        public IActionResult GoogleLogin()
+        {
+            var redirectUrl = Url.Action(nameof(GoogleCallback), "Auth");
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(
+                                  GoogleDefaults.AuthenticationScheme, redirectUrl);
+            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+        }
+
+        // ─── 2. Google redirects here ──────────────────────────────────────────
+        [HttpGet("google/callback")]
+        public async Task<IActionResult> GoogleCallback()
+        {
+            var frontendBase = _config["Frontend:BaseUrl"]!;
+
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info is null)
+                return Redirect($"{frontendBase}/login?error=google_failed");
+
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email)!;
+            var name = info.Principal.FindFirstValue(ClaimTypes.Name) ?? email;
+            var avatarUrl = info.Principal.FindFirstValue("urn:google:picture");
+
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user is null)
+            {
+                user = new AppUser
+                {
+                    UserName = email,
+                    Email = email,
+                    DisplayName = name,
+                    //AvatarUrl = avatarUrl,
+                    EmailConfirmed = true
+                };
+
+                var createResult = await _userManager.CreateAsync(user);
+
+                if (!createResult.Succeeded)
+                {
+                    var errors = string.Join(", ", createResult.Errors.Select(e => e.Description));
+                    return Redirect($"{frontendBase}/login?error={Uri.EscapeDataString(errors)}");
+                }
+            }
+            else
+            {
+                if (avatarUrl is not null )
+                {
+                    await _userManager.UpdateAsync(user);
+                }
+            }
+
+            var existingLogins = await _userManager.GetLoginsAsync(user);
+
+            var alreadyLinked = existingLogins.Any(l =>
+                l.LoginProvider == info.LoginProvider &&
+                l.ProviderKey == info.ProviderKey);
+
+            if (!alreadyLinked)
+                await _userManager.AddLoginAsync(user, info);
+
+            // ✅ create claims
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.NameIdentifier, user.Id),
+        new Claim(ClaimTypes.Email, user.Email!),
+        new Claim(ClaimTypes.Name, user.DisplayName ?? user.Email!)
+    };
+
+            // ✅ generate token (no await)
+            var gentoken = token.generateToken(claims);
+
+            return Redirect($"{frontendBase}?token={gentoken}");
+        }
+
+        // ─── 3. Get current user info ──────────────────────────────────────────
+        [HttpGet("me")]
+        [Microsoft.AspNetCore.Authorization.Authorize]
+        public async Task<IActionResult> Me()
+        {
+            var identityId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = await _userManager.FindByIdAsync(identityId!);
+
+            if (user is null) return Unauthorized();
+
+            return Ok(new
+            {
+                user.UserId,
+                user.Email,
+                user.DisplayName,
+               // user.AvatarUrl,
+                user.Gender,
+                user.BloodType,
+                user.DateOfBirth,
+                user.PhoneNumber
+            });
+        }
+
         // POST api/Authentication/ForgotPassword
         // Body: { "email": "user@example.com" }
         //[HttpPost("ForgotPassword")]
@@ -163,5 +280,6 @@ namespace HealthCare.Presentation.Controllers
 
         //    return BadRequest(new { isSuccess = result.Issucess, message = result.Message });
         //}
+
     }
 }

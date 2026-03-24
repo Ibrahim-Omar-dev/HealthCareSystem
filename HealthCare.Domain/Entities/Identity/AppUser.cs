@@ -15,5 +15,6 @@ namespace HealthCare.Domain.Entities.Identity
         [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
         public BloodType? BloodType { get; set; }
+        //public string? AvatarUrl { get; set; }
     }
 }
