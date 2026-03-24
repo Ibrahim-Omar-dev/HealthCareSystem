@@ -1,12 +1,13 @@
-﻿using HealthCare.Application.Mapping;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using HealthCare.Application.Mapping;
 using HealthCare.Application.Services;
 using HealthCare.Application.Services.Authentication;
 using HealthCare.Application.Services.Interfaces;
 using HealthCare.Application.Services.Interfaces.IAuthentication;
 using HealthCare.Application.Validation;
 using HealthCare.Application.Validation.Services;
-using FluentValidation;
-using FluentValidation.AspNetCore;
+using HealthCare.Domain.Interface;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HealthCare.Application.DependencyInjection

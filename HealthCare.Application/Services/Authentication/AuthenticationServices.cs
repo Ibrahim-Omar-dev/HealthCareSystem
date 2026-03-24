@@ -8,7 +8,7 @@ using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.Interface;
 using HealthCare.Domain.User;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace HealthCare.Application.Services.Authentication
@@ -24,12 +24,14 @@ namespace HealthCare.Application.Services.Authentication
         private readonly IUserManagement userManagement;
     private readonly IRoleManagement roleManagement;
     private readonly ILogger<AuthenticationServices> logger;
-        
+        private readonly IConfiguration configuration;
+        private readonly IEmailService emailService;
+
         public AuthenticationServices(IValidationServices validationServices, IValidator<CreateUser> createValidator,
             IValidator<LoginUser> loginValidator, ITokenManagement tokenManagement,
             UserManager<AppUser> userManager,
             IMapper mapper, IUserManagement userManagement, IRoleManagement roleManagement, ILogger<AuthenticationServices> logger
-
+            ,IConfiguration configuration, IEmailService emailService
             )
         {
             this.validationServices = validationServices;
@@ -41,6 +43,8 @@ namespace HealthCare.Application.Services.Authentication
             this.userManagement = userManagement;
             this.roleManagement = roleManagement;
             this.logger = logger;
+            this.configuration = configuration;
+            this.emailService = emailService;
         }
 
         public async Task<LoginResponse> ExternalLogin(string email, string? userName)
@@ -208,6 +212,40 @@ namespace HealthCare.Application.Services.Authentication
                 RefreshToken = newRefreshToken
             };
         }
+        public async Task<(bool IsSuccess, string Message)> ForgotPasswordAsync(string email)
+        {
+            var user = await userManager.FindByEmailAsync(email);
 
+            if (user is null)
+                return (true, "If that email exists, a reset link has been sent.");
+
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            var encodedToken = Uri.EscapeDataString(token);
+            var frontendBase = configuration["Frontend:BaseUrl"]!;
+            var resetLink = $"{frontendBase}/reset-password?email={Uri.EscapeDataString(email)}&token={encodedToken}";
+
+            await emailService.SendResetPasswordEmailAsync(email, resetLink);
+
+            return (true, "If that email exists, a reset link has been sent.");
+        }
+
+        public async Task<(bool IsSuccess, string Message)> ResetPasswordAsync(
+            string email, string token, string newPassword)
+        {
+            var user = await userManager.FindByEmailAsync(email);
+            if (user is null)
+                return (false, "Invalid request.");
+
+            var decodedToken = Uri.UnescapeDataString(token);
+            var result = await userManager.ResetPasswordAsync(user, decodedToken, newPassword);
+
+            if (!result.Succeeded)
+            {
+                var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                return (false, errors);
+            }
+
+            return (true, "Password reset successfully.");
+        }
     }
 }

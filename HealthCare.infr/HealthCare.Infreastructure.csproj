@@ -27,8 +27,4 @@
     <ProjectReference Include="..\HealthCare.Domain\HealthCare.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
