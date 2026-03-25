@@ -36,6 +36,57 @@ namespace HealthCare.Presentation.Controllers
             _signInManager = signInManager;
             this.jwttoken = token;
         }
+        [HttpPost("CreateUser")]
+        public async Task<IActionResult> CreateUser(CreateUser createUser)
+        {
+            var result = await authenticationService.CreateUser(createUser);
+            return result
+                ? Ok(new { success = true, message = "User created successfully" })
+                : BadRequest(new { success = false, message = "User already exists or creation failed" });
+        }
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(LoginUser loginUser)
+        {
+            var result = await authenticationService.Login(loginUser);
+
+            if (result.Issucess)
+            {
+                return Ok(new
+                {
+                    isSuccess = result.Issucess,
+                    message = result.Message,
+                    token = result.Token,
+                    refreshToken = result.RefreshToken
+                });
+            }
+
+            return BadRequest(new
+            {
+                isSuccess = result.Issucess,
+                message = result.Message
+            });
+        }
+        [HttpGet("RefreshToken/{refreshToken}")]
+        public async Task<IActionResult> ReviveToken(string refreshToken)
+        {
+            var result = await authenticationService.ReviveToken(refreshToken);
+            if (result.Issucess)
+            {
+                return Ok(new
+                {
+                    isSuccess = result.Issucess,
+                    message = result.Message,
+                    token = result.Token,
+                    refreshToken = result.RefreshToken
+                });
+            }
+
+            return BadRequest(new
+            {
+                isSuccess = result.Issucess,
+                message = result.Message
+            });
+        }
         [HttpPost("google")]
         public async Task<IActionResult> GoogleMobileLogin([FromBody] GoogleLoginRequest request)
         {
@@ -130,12 +181,6 @@ namespace HealthCare.Presentation.Controllers
             public string IdToken { get; set; } = "";
         }
 
-
-        // ─── Request Model ─────────────────────────────────────────────────────────
-
-        /// <summary>
-        /// Step 1 — User submits their email; we send a reset link.
-        /// </summary>
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequest request)
         {
@@ -143,14 +188,22 @@ namespace HealthCare.Presentation.Controllers
                 return BadRequest(ModelState);
 
             var result = await authenticationService.ForgotPasswordAsync(request.Email);
-
-            // Always 200 — never reveal whether the email exists
             return Ok(new { isSuccess = result.IsSuccess, message = result.Message });
         }
 
-        /// <summary>
-        /// Step 2 — User submits email + token (from the link) + new password.
-        /// </summary>
+        [HttpPost("verify-otp")]
+        public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await authenticationService.VerifyOtpAsync(request.Email, request.Otp);
+
+            return result.IsSuccess
+                ? Ok(new { isSuccess = true, message = result.Message })
+                : BadRequest(new { isSuccess = false, message = result.Message });
+        }
+
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
         {
@@ -158,63 +211,11 @@ namespace HealthCare.Presentation.Controllers
                 return BadRequest(ModelState);
 
             var result = await authenticationService.ResetPasswordAsync(
-                             request.Email, request.Token, request.NewPassword);
+                             request.Email, request.Otp, request.NewPassword);
 
             return result.IsSuccess
                 ? Ok(new { isSuccess = true, message = result.Message })
                 : BadRequest(new { isSuccess = false, message = result.Message });
-        }
-
-        [HttpPost("CreateUser")]
-        public async Task<IActionResult> CreateUser(CreateUser createUser)
-        {
-            var result = await authenticationService.CreateUser(createUser);
-            return result
-                ? Ok(new { success = true, message = "User created successfully" })
-                : BadRequest(new { success = false, message = "User already exists or creation failed" });
-        }
-        [HttpPost("Login")]
-        public async Task<IActionResult> Login(LoginUser loginUser)
-        {
-            var result = await authenticationService.Login(loginUser);
-
-            if (result.Issucess)
-            {
-                return Ok(new
-                {
-                    isSuccess = result.Issucess,
-                    message = result.Message,
-                    token = result.Token,
-                    refreshToken = result.RefreshToken
-                });
-            }
-
-            return BadRequest(new
-            {
-                isSuccess = result.Issucess,
-                message = result.Message
-            });
-        }
-        [HttpGet("RefreshToken/{refreshToken}")]
-        public async Task<IActionResult> ReviveToken(string refreshToken)
-        {
-            var result = await authenticationService.ReviveToken(refreshToken);
-            if (result.Issucess)
-            {
-                return Ok(new
-                {
-                    isSuccess = result.Issucess,
-                    message = result.Message,
-                    token = result.Token,
-                    refreshToken = result.RefreshToken
-                });
-            }
-
-            return BadRequest(new
-            {
-                isSuccess = result.Issucess,
-                message = result.Message
-            });
         }
 
     }

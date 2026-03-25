@@ -16,5 +16,8 @@ namespace HealthCare.Domain.Entities.Identity
         public DateTime? DateOfBirth { get; set; }
         public BloodType? BloodType { get; set; }
         //public string? AvatarUrl { get; set; }
+
+        public string? OtpCode { get; set; }
+        public DateTime? OtpExpiry { get; set; }
     }
 }

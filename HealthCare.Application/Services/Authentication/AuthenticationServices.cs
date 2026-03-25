@@ -216,34 +216,54 @@ namespace HealthCare.Application.Services.Authentication
         {
             var user = await userManager.FindByEmailAsync(email);
 
+            // Always return success to avoid user enumeration
             if (user is null)
-                return (true, "If that email exists, a reset link has been sent.");
+                return (true, "If that email exists, an OTP has been sent.");
 
-            var token = await userManager.GeneratePasswordResetTokenAsync(user);
-            var encodedToken = Uri.EscapeDataString(token);
-            var frontendBase = configuration["Frontend:BaseUrl"]!;
-            var resetLink = $"{frontendBase}/reset-password?email={Uri.EscapeDataString(email)}&token={encodedToken}";
+            // Generate 6-digit OTP
+            var otp = new Random().Next(100000, 999999).ToString();
 
-            await emailService.SendResetPasswordEmailAsync(email, resetLink);
+            user.OtpCode = otp;
+            user.OtpExpiry = DateTime.UtcNow.AddMinutes(10);
+            await userManager.UpdateAsync(user);
 
-            return (true, "If that email exists, a reset link has been sent.");
+            await emailService.SendOtpEmailAsync(email, otp);
+
+            return (true, "OTP sent to your email. Valid for 10 minutes.");
+        }
+
+        public async Task<(bool IsSuccess, string Message)> VerifyOtpAsync(string email, string otp)
+        {
+            var user = await userManager.FindByEmailAsync(email);
+
+            if (user is null || user.OtpCode != otp || user.OtpExpiry < DateTime.UtcNow)
+                return (false, "Invalid or expired OTP.");
+
+            return (true, "OTP verified successfully.");
         }
 
         public async Task<(bool IsSuccess, string Message)> ResetPasswordAsync(
-            string email, string token, string newPassword)
+            string email, string otp, string newPassword)
         {
             var user = await userManager.FindByEmailAsync(email);
-            if (user is null)
-                return (false, "Invalid request.");
 
-            var decodedToken = Uri.UnescapeDataString(token);
-            var result = await userManager.ResetPasswordAsync(user, decodedToken, newPassword);
+            if (user is null || user.OtpCode != otp || user.OtpExpiry < DateTime.UtcNow)
+                return (false, "Invalid or expired OTP.");
+
+            // Reset password using Identity token
+            var resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await userManager.ResetPasswordAsync(user, resetToken, newPassword);
 
             if (!result.Succeeded)
             {
                 var errors = string.Join(", ", result.Errors.Select(e => e.Description));
                 return (false, errors);
             }
+
+            // Clear OTP after successful reset
+            user.OtpCode = null;
+            user.OtpExpiry = null;
+            await userManager.UpdateAsync(user);
 
             return (true, "Password reset successfully.");
         }

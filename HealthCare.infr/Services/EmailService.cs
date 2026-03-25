@@ -14,32 +14,34 @@ namespace HealthCare.Infreastructure.Services
             _config = config;
         }
 
-        public async Task SendResetPasswordEmailAsync(string toEmail, string resetLink)
+        public async Task SendOtpEmailAsync(string toEmail, string otp)
         {
-            var smtpHost = _config["Email:SmtpHost"]!;
-            var smtpPort = int.Parse(_config["Email:SmtpPort"]!);
-            var smtpUser = _config["Email:SmtpUser"]!;
-            var smtpPass = _config["Email:SmtpPass"]!;
+            var smtpHost = _config["Email:SmtpHost"];
+            var smtpPort = int.Parse(_config["Email:SmtpPort"]);
+            var smtpUser = _config["Email:SmtpUser"];
+            var smtpPass = _config["Email:SmtpPass"];
             var fromName = _config["Email:FromName"] ?? "HealthCare";
 
-            using var client = new SmtpClient(smtpHost, smtpPort)
+            var client = new SmtpClient(smtpHost, smtpPort)
             {
-                Credentials = new NetworkCredential(smtpUser, smtpPass),
-                EnableSsl = true
+                EnableSsl = true,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(smtpUser, smtpPass)
             };
 
             var mail = new MailMessage
             {
                 From = new MailAddress(smtpUser, fromName),
-                Subject = "Reset your password",
-                Body = $"""
-                          <h2>Password Reset</h2>
-                          <p>Click the link below to reset your password. It expires in 1 hour.</p>
-                          <a href="{resetLink}">Reset Password</a>
-                          <p>If you didn't request this, ignore this email.</p>
-                          """,
+                Subject = "Password Reset OTP",
+                Body = $@"
+                    <h2>Password Reset</h2>
+                    <p>Your OTP:</p>
+                    <h1>{otp}</h1>
+                    <p>Valid for 10 minutes</p>
+                ",
                 IsBodyHtml = true
             };
+
             mail.To.Add(toEmail);
 
             await client.SendMailAsync(mail);

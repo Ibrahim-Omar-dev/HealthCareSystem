@@ -78,18 +78,21 @@ namespace E_Commerce.Infreastructure.Repository.Authentication
         {
             var roleName = await roleManagement.GetUserRole(email);
             var user = await GetUserByEmail(email);
+
             var claims = new List<Claim>
-            {
-                new Claim("FullName",user.UserName),
-                new Claim(ClaimTypes.Email,user.Email!),
-                new Claim(ClaimTypes.NameIdentifier,user.Id),
-                new Claim(ClaimTypes.Role,roleName!),
-                new("userId",                  user.UserId.ToString()),
-         
-                new("gender",                  user.Gender?.ToString()    ?? ""),
-                new("bloodType",               user.BloodType?.ToString() ?? ""),
-                new("dateOfBirth",             user.DateOfBirth?.ToString("yyyy-MM-dd"))
-            };
+    {
+        new Claim(ClaimTypes.Email, user.Email ?? ""),
+        new Claim(ClaimTypes.Name, user.UserName ?? ""),
+        new Claim(ClaimTypes.NameIdentifier, user.Id ?? ""),
+        new Claim(ClaimTypes.Role, roleName ?? ""),
+
+        new Claim("userId", user.UserId.ToString()),
+
+        new Claim("gender", user.Gender?.ToString() ?? ""),
+        new Claim("bloodType", user.BloodType?.ToString() ?? ""),
+        new Claim("dateOfBirth",
+            user.DateOfBirth?.ToString("yyyy-MM-dd") ?? "")
+    };
 
             return claims;
         }
