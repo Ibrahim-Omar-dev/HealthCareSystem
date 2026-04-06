@@ -27,7 +27,7 @@ namespace HealthCare.Presentation.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var user = await context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
+                .FirstOrDefaultAsync(u => u.Id.ToString() == userId);
 
             if (user == null)
                 return NotFound("User not found");
@@ -45,7 +45,7 @@ namespace HealthCare.Presentation.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var user = await context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
+                .FirstOrDefaultAsync(u => u.Id.ToString() == userId);
 
             if (user == null)
                 return NotFound("User not found");
@@ -69,7 +69,7 @@ namespace HealthCare.Presentation.Controllers
                 return Unauthorized("Invalid token");
 
             var user = await context.Users
-                .FirstOrDefaultAsync(u => u.Id == userId);
+                .FirstOrDefaultAsync(u => u.Id.ToString() == userId);
 
             if (user == null)
                 return NotFound("User not found");

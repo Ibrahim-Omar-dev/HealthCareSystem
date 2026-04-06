@@ -3,12 +3,14 @@ using HealthCare.Application.Services.Interfaces;
 using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.Interface;
 using HealthCare.Domain.IRepository;
+using HealthCare.Infrastructure.Services.Implemention.Measurement;
 using HealthCare.Infreastructure.Data;
 using HealthCare.Infreastructure.Logging;
 using HealthCare.Infreastructure.MiddleWare;
 using HealthCare.Infreastructure.Repository;
 using HealthCare.Infreastructure.Repository.Authentication;
 using HealthCare.Infreastructure.Services;
+using HealthCare.Infreastructure.Services.Interface.IMeasurement;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -36,16 +38,13 @@ namespace HealthCare.Infreastructure.DependencyInjection
                     }));
 
 
-            services.AddDefaultIdentity<AppUser>(options =>
+            services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>  // <-- both typed to Guid
             {
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
-                //options.Password.RequireUppercase = true;
-                //options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequiredLength = 6;
                 options.Password.RequiredUniqueChars = 1;
 
-                //Lockout prevents brute-force attacks (trying many passwords until one works).
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
@@ -56,9 +55,9 @@ namespace HealthCare.Infreastructure.DependencyInjection
                 options.SignIn.RequireConfirmedEmail = false;
                 options.SignIn.RequireConfirmedPhoneNumber = false;
             })
-            .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<AppDbContext>()
-            .AddDefaultTokenProviders();
+.AddRoles<IdentityRole<Guid>>()           // <-- Guid
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
             var jwtSettings = config.GetSection("JwtSettings");
             var secretKey = jwtSettings["SecretKey"];
@@ -118,6 +117,8 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<IRoleManagement, RoleManagement>();
             services.AddScoped<ITokenManagement, TokenManagement>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IMeasurementService, MeasurementService>();
+            
 
 
             return services;

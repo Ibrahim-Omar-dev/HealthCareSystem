@@ -6,19 +6,17 @@ namespace HealthCare.Infrastructure.Seeder
     public static class SeedRoles
     {
         public static async Task SeedRolesAsync(
-            RoleManager<IdentityRole> roleManager,
+            RoleManager<IdentityRole<Guid>> roleManager,
             UserManager<AppUser> userManager)
         {
-            // All four roles - Doctor and Patient ready for future use
             string[] roles = { "Admin", "User", "Doctor", "Patient" };
 
             foreach (var role in roles)
             {
                 if (!await roleManager.RoleExistsAsync(role))
-                    await roleManager.CreateAsync(new IdentityRole(role));
+                    await roleManager.CreateAsync(new IdentityRole<Guid>(role));  
             }
 
-            // Seed default Admin user
             var adminEmail = "admin@gmail.com";
             var existingAdmin = await userManager.FindByEmailAsync(adminEmail);
 
@@ -28,7 +26,8 @@ namespace HealthCare.Infrastructure.Seeder
                 {
                     UserName = "Admin",
                     Email = adminEmail,
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    DisplayName = "Admin"
                 };
 
                 var result = await userManager.CreateAsync(adminUser, "Hema-2003");

@@ -129,10 +129,10 @@ namespace HealthCare.Presentation.Controllers
                 // 3. Build claims
                 var claims = new List<Claim>
         {
-            new(ClaimTypes.NameIdentifier, user.Id),
+            new(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new(ClaimTypes.Email,          user.Email          ?? ""),
             new(ClaimTypes.Name,           user.DisplayName    ?? ""),
-            new("userId",                  user.UserId.ToString()),
+            new("userId",                  user.Id.ToString()),
             new("gender",                  user.Gender?.ToString()    ?? ""),
             new("bloodType",               user.BloodType?.ToString() ?? ""),
             new("dateOfBirth",             user.DateOfBirth?.ToString("yyyy-MM-dd") ?? ""),
@@ -151,7 +151,7 @@ namespace HealthCare.Presentation.Controllers
                     token,
                     user = new
                     {
-                        user.UserId,
+                        user.Id,
                         user.Email,
                         user.DisplayName,
                         user.Gender,

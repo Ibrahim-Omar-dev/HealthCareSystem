@@ -88,7 +88,7 @@ namespace HealthCare.Application.Services.Authentication
             string jwtToken = tokenManagement.generateToken(claims);
             var refreshToken = tokenManagement.GetRefreshToken();
 
-            var saveTokenResult = await tokenManagement.AddRefreshToken(_user.Id, refreshToken);
+            var saveTokenResult = await tokenManagement.AddRefreshToken(_user.Id.ToString(), refreshToken);
             if (!saveTokenResult)
                 return new LoginResponse { Issucess = false, Message = "Internal error occurred while authentication" };
 
@@ -169,7 +169,7 @@ namespace HealthCare.Application.Services.Authentication
             string jwtToken = tokenManagement.generateToken(claims);
             var refreshToken = tokenManagement.GetRefreshToken();
 
-            var saveTokenResult = await tokenManagement.AddRefreshToken(_user.Id, refreshToken);
+            var saveTokenResult = await tokenManagement.AddRefreshToken(_user.Id.ToString(), refreshToken);
             if (!saveTokenResult)
                 return new LoginResponse { Issucess = false, Message = "Internal error occurred while authentication" };
 

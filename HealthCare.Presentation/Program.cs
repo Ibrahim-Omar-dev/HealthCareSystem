@@ -71,16 +71,14 @@ try
 
     var app = builder.Build();
 
-    // ── Seed Roles & Users ────────────────────────────────────────────────────
     using (var scope = app.Services.CreateScope())
     {
         var services = scope.ServiceProvider;
-        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole<Guid>>>();  
         var userManager = services.GetRequiredService<UserManager<AppUser>>();
         await SeedRoles.SeedRolesAsync(roleManager, userManager);
     }
 
-    // ── Middleware Pipeline (ORDER MATTERS) ───────────────────────────────────
     app.UseSerilogRequestLogging();
 
     app.UseSwagger();

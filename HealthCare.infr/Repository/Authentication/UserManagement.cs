@@ -83,10 +83,10 @@ namespace E_Commerce.Infreastructure.Repository.Authentication
     {
         new Claim(ClaimTypes.Email, user.Email ?? ""),
         new Claim(ClaimTypes.Name, user.UserName ?? ""),
-        new Claim(ClaimTypes.NameIdentifier, user.Id ?? ""),
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString() ?? ""),
         new Claim(ClaimTypes.Role, roleName ?? ""),
 
-        new Claim("userId", user.UserId.ToString()),
+        new Claim("userId", user.Id.ToString()),
 
         new Claim("gender", user.Gender?.ToString() ?? ""),
         new Claim("bloodType", user.BloodType?.ToString() ?? ""),

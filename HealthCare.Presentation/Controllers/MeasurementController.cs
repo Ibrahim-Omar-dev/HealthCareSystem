@@ -1,97 +1,180 @@
-﻿using HealthCare.Domain.Entities;
+﻿using HealthCare.Application.Dto;
 using HealthCare.Domain.Interface;
-using HealthCare.Infreastructure.Data;
+using HealthCare.Infreastructure.Services.Interface.IMeasurement;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Metrics;
 using System.Security.Claims;
 
 namespace HealthCare.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class MeasurementController : ControllerBase
     {
-        private readonly IUserManagement userManagement;
-        private readonly AppDbContext context;
+        private readonly IUserManagement _userManagement;
+        private readonly IMeasurementService _measurementService;
 
-        public MeasurementController(IUserManagement userManagement, AppDbContext context)
+        public MeasurementController(
+            IUserManagement userManagement,
+            IMeasurementService measurementService)
         {
-            this.userManagement = userManagement;
-            this.context = context;
+            _userManagement = userManagement;
+            _measurementService = measurementService;
         }
 
         [HttpGet("GetAllData")]
-        public async Task<IActionResult> getAllData()
+        public async Task<IActionResult> GetAllData()
         {
-            var SensorMeasurement = await context.Measurements.ToListAsync();
-            if (SensorMeasurement == null || !SensorMeasurement.Any())
-            {
-                return NotFound("No Exit Data");
-            }
-            return Ok(SensorMeasurement);
+            var data = await _measurementService.GetAllDataAsync();
+
+            if (!data.Any())
+                return NotFound("No data found.");
+
+            return Ok(data);
         }
 
-        [HttpGet("GetDataByUserId/{userId}")]
-        public async Task<IActionResult> getDataByUserId(Guid userId)
+        [HttpGet("GetDataByUserId/{userId:guid}")]
+        public async Task<IActionResult> GetDataByUserId(Guid userId)
         {
-            var SensorMeasurement = await context.Measurements
-                .Where(_ => _.UserId == userId)
-                .ToListAsync();
+            var data = await _measurementService.GetDataByUserIdAsync(userId);
 
-            if (SensorMeasurement == null || !SensorMeasurement.Any())
-            {
-                return NotFound("No Exit Data");
-            }
-            return Ok(SensorMeasurement);
+            if (!data.Any())
+                return NotFound("No data found for the given user.");
+
+            return Ok(data);
         }
 
         [HttpGet("GetMyData")]
         public async Task<IActionResult> GetMyData()
         {
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (!TryGetCurrentUserId(out Guid userId, out IActionResult? error))
+                return error!;
 
-            if (string.IsNullOrEmpty(userIdClaim))
-            {
-                return Unauthorized("User ID not found in token");
-            }
+            var data = await _measurementService.GetMyDataAsync(userId);
 
-            if (!Guid.TryParse(userIdClaim, out Guid userId))
-            {
-                return BadRequest("Invalid User ID format");
-            }
+            if (!data.Any())
+                return NotFound("No measurements found for this user.");
 
-            var sensorMeasurements = await context.Measurements
-                .Where(m => m.UserId == userId)
-                .OrderByDescending(m => m.Id)
-                .ToListAsync();
-
-            if (sensorMeasurements == null || !sensorMeasurements.Any())
-            {
-                return NotFound("No measurements found for this user");
-            }
-
-            return Ok(sensorMeasurements);
+            return Ok(data);
         }
-        [HttpPost("addData")]
-        public async Task<IActionResult> AddData(SensorMeasurement measurement)
-        {
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userIdClaim))
-            {
-                return Unauthorized("User ID not found in token");
-            }
-            if (!Guid.TryParse(userIdClaim, out Guid userId))
-            {
-                return BadRequest("Invalid User ID format");
-            }
-            measurement.UserId = userId;
-            context.Measurements.Add(measurement);
-            await context.SaveChangesAsync();
-            return Ok(new { success = true, message = "Measurement added successfully" });
 
+        [HttpPost("AddData")]
+        [AllowAnonymous]
+        public async Task<IActionResult> AddData(SensorMeasurementDto dto)
+        {
+            Guid? userId = null;
+
+            var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (!string.IsNullOrEmpty(claim) && Guid.TryParse(claim, out Guid parsed))
+                userId = parsed;
+
+            var measurement = await _measurementService.AddDataAsync(dto, userId);
+
+            return Ok(new
+            {
+                success = true,
+                isAuthenticated = userId != null,
+                message = "Measurement added successfully"
+            });
+        }
+
+
+        /// <summary>Returns the latest measurement recorded in the last 6 hours.</summary>
+        [HttpGet("GetDataLast6Hours")]
+        public async Task<IActionResult> GetDataLast6Hours()
+        {
+            if (!TryGetCurrentUserId(out Guid userId, out IActionResult? error))
+                return error!;
+
+            var record = await _measurementService.GetLatestInLast6HoursAsync(userId);
+
+            return record is null
+                ? NotFound("No measurement found in the last 6 hours.")
+                : Ok(record);
+        }
+
+        /// <summary>Returns the latest measurement recorded in the last 12 hours.</summary>
+        [HttpGet("GetDataLast12Hours")]
+        public async Task<IActionResult> GetDataLast12Hours()
+        {
+            if (!TryGetCurrentUserId(out Guid userId, out IActionResult? error))
+                return error!;
+
+            var record = await _measurementService.GetLatestInLast12HoursAsync(userId);
+
+            return record is null
+                ? NotFound("No measurement found in the last 12 hours.")
+                : Ok(record);
+        }
+
+        /// <summary>Returns the latest measurement recorded in the last 24 hours.</summary>
+        [HttpGet("GetDataLast24Hours")]
+        public async Task<IActionResult> GetDataLast24Hours()
+        {
+            if (!TryGetCurrentUserId(out Guid userId, out IActionResult? error))
+                return error!;
+
+            var record = await _measurementService.GetLatestInLast24HoursAsync(userId);
+
+            return record is null
+                ? NotFound("No measurement found in the last 24 hours.")
+                : Ok(record);
+        }
+
+        /// <summary>Returns the latest measurement recorded in the last 3 days.</summary>
+        [HttpGet("GetDataLast3Days")]
+        public async Task<IActionResult> GetDataLast3Days()
+        {
+            if (!TryGetCurrentUserId(out Guid userId, out IActionResult? error))
+                return error!;
+
+            var record = await _measurementService.GetLatestInLast3DaysAsync(userId);
+
+            return record is null
+                ? NotFound("No measurement found in the last 3 days.")
+                : Ok(record);
+        }
+
+        /// <summary>Returns the very last measurement recorded by the current user.</summary>
+        [HttpGet("GetLastRecord")]
+        public async Task<IActionResult> GetLastRecord()
+        {
+            if (!TryGetCurrentUserId(out Guid userId, out IActionResult? error))
+                return error!;
+
+            var record = await _measurementService.GetLastRecordAsync(userId);
+
+            return record is null
+                ? NotFound("No measurements found for this user.")
+                : Ok(record);
+        }
+
+
+        /// <summary>
+        /// Tries to parse the authenticated user's ID from the JWT claims.
+        /// Returns false and sets <paramref name="error"/> when extraction fails.
+        /// </summary>
+        private bool TryGetCurrentUserId(out Guid userId, out IActionResult? error)
+        {
+            userId = Guid.Empty;
+            error = null;
+
+            var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(claim))
+            {
+                error = Unauthorized("User ID not found in token.");
+                return false;
+            }
+
+            if (!Guid.TryParse(claim, out userId))
+            {
+                error = BadRequest("Invalid User ID format.");
+                return false;
+            }
+
+            return true;
         }
     }
 }
