@@ -1,9 +1,9 @@
 ﻿using E_Commerce.Infreastructure.Repository.Authentication;
+using HealthCare.Application.Interfaces;
 using HealthCare.Application.Services.Interfaces;
 using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.Interface;
 using HealthCare.Domain.IRepository;
-using HealthCare.Infrastructure.Services.Implemention.Measurement;
 using HealthCare.Infreastructure.Data;
 using HealthCare.Infreastructure.Logging;
 using HealthCare.Infreastructure.MiddleWare;
@@ -118,7 +118,9 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<ITokenManagement, TokenManagement>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IMeasurementService, MeasurementService>();
-            
+            services.AddScoped<IAlertService, AlertService>();
+
+
 
 
             return services;

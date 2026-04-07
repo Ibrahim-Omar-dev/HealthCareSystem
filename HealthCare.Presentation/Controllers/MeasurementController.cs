@@ -1,4 +1,5 @@
 ﻿using HealthCare.Application.Dto;
+using HealthCare.Application.Interfaces;
 using HealthCare.Domain.Interface;
 using HealthCare.Infreastructure.Services.Interface.IMeasurement;
 using Microsoft.AspNetCore.Authorization;
@@ -14,13 +15,15 @@ namespace HealthCare.Presentation.Controllers
     {
         private readonly IUserManagement _userManagement;
         private readonly IMeasurementService _measurementService;
+        private readonly IAlertService _alertService;
 
         public MeasurementController(
             IUserManagement userManagement,
-            IMeasurementService measurementService)
+            IMeasurementService measurementService,IAlertService alertService)
         {
             _userManagement = userManagement;
             _measurementService = measurementService;
+            _alertService = alertService;
         }
 
         [HttpGet("GetAllData")]
@@ -70,6 +73,8 @@ namespace HealthCare.Presentation.Controllers
                 userId = parsed;
 
             var measurement = await _measurementService.AddDataAsync(dto, userId);
+            if (userId.HasValue)
+                await _alertService.GenerateAlertsFromMeasurementAsync(measurement);
 
             return Ok(new
             {

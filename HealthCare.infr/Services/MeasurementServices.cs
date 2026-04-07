@@ -4,7 +4,7 @@ using HealthCare.Infreastructure.Data;
 using HealthCare.Infreastructure.Services.Interface.IMeasurement;
 using Microsoft.EntityFrameworkCore;
 
-namespace HealthCare.Infrastructure.Services.Implemention.Measurement
+namespace HealthCare.Infreastructure.Services
 {
     public class MeasurementService : IMeasurementService
     {

@@ -78,7 +78,7 @@ try
         var userManager = services.GetRequiredService<UserManager<AppUser>>();
         await SeedRoles.SeedRolesAsync(roleManager, userManager);
     }
-
+    app.UseDeveloperExceptionPage();
     app.UseSerilogRequestLogging();
 
     app.UseSwagger();

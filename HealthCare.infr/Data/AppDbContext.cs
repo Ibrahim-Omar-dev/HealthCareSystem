@@ -12,7 +12,7 @@ public class AppDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     public DbSet<RefreshToken> RefreshTokens { get; set; }
     public DbSet<SensorMeasurement> Measurements { get; set; }
     public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
-
+    public DbSet<Alert> Alerts { get; set; }
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
