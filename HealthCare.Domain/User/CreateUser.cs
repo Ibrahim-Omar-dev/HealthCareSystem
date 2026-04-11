@@ -11,6 +11,8 @@ namespace HealthCare.Domain.User
         [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
         public BloodType? BloodType { get; set; }
+        public string? DeviceCode { get; set; }
+
 
     }
 }

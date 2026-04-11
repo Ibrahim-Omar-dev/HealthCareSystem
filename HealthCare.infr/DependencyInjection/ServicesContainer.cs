@@ -4,13 +4,14 @@ using HealthCare.Application.Services.Interfaces;
 using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.Interface;
 using HealthCare.Domain.IRepository;
+using HealthCare.Infrastructure.Repository;
+using HealthCare.Infrastructure.Services.Implementation.Measurement;
 using HealthCare.Infreastructure.Data;
 using HealthCare.Infreastructure.Logging;
 using HealthCare.Infreastructure.MiddleWare;
 using HealthCare.Infreastructure.Repository;
 using HealthCare.Infreastructure.Repository.Authentication;
 using HealthCare.Infreastructure.Services;
-using HealthCare.Infreastructure.Services.Interface.IMeasurement;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -119,6 +120,8 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IMeasurementService, MeasurementService>();
             services.AddScoped<IAlertService, AlertService>();
+            services.AddScoped<IDeviceService, DeviceService>();
+            services.AddScoped<IFollowService, FollowService>();
 
 
 

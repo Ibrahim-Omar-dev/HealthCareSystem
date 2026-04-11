@@ -14,12 +14,15 @@ namespace E_Commerce.Infreastructure.Repository.Authentication
         private readonly UserManager<AppUser> userManager;
         private readonly AppDbContext context;
         private readonly IRoleManagement roleManagement;
+        private readonly IDeviceService deviceService;
 
-        public UserManagement(UserManager<AppUser> userManager, AppDbContext context,IRoleManagement roleManagement)
+        public UserManagement(UserManager<AppUser> userManager, AppDbContext context,
+            IRoleManagement roleManagement, IDeviceService deviceService)
         {
             this.userManager = userManager;
             this.context = context;
             this.roleManagement = roleManagement;
+            this.deviceService = deviceService;
         }
         public async Task<bool> CreateUser(CreateUser createUser)
         {
@@ -27,14 +30,27 @@ namespace E_Commerce.Infreastructure.Repository.Authentication
             if (existingUser != null)
                 return false;
 
+            Guid? deviceId = null;
+
+            // لو كتب code نجيب الـ DeviceId بتاعه
+            if (!string.IsNullOrWhiteSpace(createUser.DeviceCode))
+            {
+                deviceId = await deviceService.GetDeviceIdByCodeAsync(createUser.DeviceCode);
+
+                // الكود مش موجود أو اتربط قبل كده
+                if (deviceId == null)
+                    return false;
+            }
+
             var user = new AppUser
             {
-                UserName = createUser.Email,      
+                UserName = createUser.Email,
                 Email = createUser.Email,
                 DisplayName = createUser.UserName,
                 Gender = createUser.Gender,
                 BloodType = createUser.BloodType,
-                DateOfBirth=createUser.DateOfBirth,
+                DateOfBirth = createUser.DateOfBirth,
+                DeviceId = deviceId  // null لو معكتبش code
             };
 
             var result = await userManager.CreateAsync(user, createUser.Password);
@@ -44,6 +60,17 @@ namespace E_Commerce.Infreastructure.Repository.Authentication
                     Console.WriteLine($"Code: {error.Code} | Description: {error.Description}");
                 return false;
             }
+
+            if (deviceId.HasValue)
+            {
+                var device = await context.Devices.FindAsync(deviceId.Value);
+                if (device != null)
+                {
+                    device.IsActive = true;
+                    await context.SaveChangesAsync();
+                }
+            }
+
             return true;
         }
 

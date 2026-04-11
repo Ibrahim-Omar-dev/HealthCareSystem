@@ -13,20 +13,29 @@ public class AppDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     public DbSet<SensorMeasurement> Measurements { get; set; }
     public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
     public DbSet<Alert> Alerts { get; set; }
+    public DbSet<Device> Devices { get; set; }
+    public DbSet<FollowRequest> FollowRequests { get; set; }
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        modelBuilder.Entity<AppUser>()
-            .Property(u => u.Gender)
-            .HasConversion<string>();
-
-        modelBuilder.Entity<AppUser>()
-            .Property(u => u.BloodType)
-            .HasConversion<string>();
+        base.OnModelCreating(builder);
 
 
+        builder.Entity<FollowRequest>()
+            .HasIndex(f => new { f.SenderId, f.ReceiverId })
+            .IsUnique();
 
-        base.OnModelCreating(modelBuilder);
+        builder.Entity<FollowRequest>()
+            .HasOne(f => f.Sender)
+            .WithMany()
+            .HasForeignKey(f => f.SenderId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<FollowRequest>()
+            .HasOne(f => f.Receiver)
+            .WithMany()
+            .HasForeignKey(f => f.ReceiverId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

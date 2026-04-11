@@ -10,6 +10,6 @@ namespace HealthCare.Application.Interfaces
         Task<IEnumerable<AlertDto>> GetCriticalAlertsAsync(Guid userId);
         Task MarkAsReadAsync(Guid alertId, Guid userId);
         Task MarkAllAsReadAsync(Guid userId);
-        Task GenerateAlertsFromMeasurementAsync(SensorMeasurement measurement);
+        Task GenerateAlertsFromMeasurementAsync(SensorMeasurement m, Guid userId);
     }
 }
