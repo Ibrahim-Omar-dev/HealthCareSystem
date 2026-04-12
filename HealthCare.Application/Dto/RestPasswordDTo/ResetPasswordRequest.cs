@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HealthCare.Application.Dto
+namespace HealthCare.Application.Dto.RestPasswordDTo
 {
     public class ResetPasswordRequest
     {

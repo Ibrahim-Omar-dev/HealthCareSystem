@@ -1,5 +1,5 @@
 ﻿using Google.Apis.Auth;
-using HealthCare.Application.Dto;
+using HealthCare.Application.Dto.RestPasswordDTo;
 using HealthCare.Application.Services.Interfaces.IAuthentication;
 using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.Interface;

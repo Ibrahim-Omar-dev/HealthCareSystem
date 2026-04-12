@@ -6,6 +6,7 @@ using HealthCare.Domain.Interface;
 using HealthCare.Domain.IRepository;
 using HealthCare.Infrastructure.Repository;
 using HealthCare.Infrastructure.Services.Implementation.Measurement;
+using HealthCare.Infreastructure.BackgroundJobs;
 using HealthCare.Infreastructure.Data;
 using HealthCare.Infreastructure.Logging;
 using HealthCare.Infreastructure.MiddleWare;
@@ -122,8 +123,9 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<IAlertService, AlertService>();
             services.AddScoped<IDeviceService, DeviceService>();
             services.AddScoped<IFollowService, FollowService>();
+            services.AddScoped<IMedicineService, MedicineService>();
 
-
+            services.AddHostedService<MedicineReminderJob>();
 
 
             return services;

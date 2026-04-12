@@ -25,4 +25,4 @@ namespace HealthCare.Domain.Entities
         [ForeignKey("ReceiverId")]
         public AppUser? Receiver { get; set; }
     }
-}
+    }

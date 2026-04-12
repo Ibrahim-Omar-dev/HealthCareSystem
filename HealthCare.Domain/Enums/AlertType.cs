@@ -8,4 +8,5 @@ namespace HealthCare.Domain.Enums
         Warning = 1,
         Critical = 2
     }
+    
 }

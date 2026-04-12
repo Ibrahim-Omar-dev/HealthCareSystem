@@ -1,0 +1,276 @@
+2026-04-13 00:56:52.655 +02:00 [INF] App Is Building...........
+2026-04-13 00:56:54.853 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-13 00:57:01.589 +02:00 [INF] Executed DbCommand (202ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-04-13 00:57:02.013 +02:00 [INF] Executed DbCommand (109ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-04-13 00:57:02.094 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-04-13 00:57:02.170 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-04-13 00:57:02.327 +02:00 [INF] Executed DbCommand (77ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BloodType], [a].[ConcurrencyStamp], [a].[DateOfBirth], [a].[DeviceId], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[Gender], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OtpCode], [a].[OtpExpiry], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-04-13 00:57:02.997 +02:00 [INF] App Is Running..............
+2026-04-13 00:57:03.765 +02:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 00:57:04.039 +02:00 [INF] Now listening on: https://localhost:7286
+2026-04-13 00:57:04.070 +02:00 [INF] Now listening on: http://localhost:5224
+2026-04-13 00:57:04.293 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-13 00:57:04.315 +02:00 [INF] Hosting environment: Development
+2026-04-13 00:57:04.318 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-04-13 00:59:27.854 +02:00 [INF] App Is Building...........
+2026-04-13 00:59:29.668 +02:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-13 00:59:34.291 +02:00 [INF] Executed DbCommand (188ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-04-13 00:59:34.554 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-04-13 00:59:34.635 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-04-13 00:59:34.716 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-04-13 00:59:34.828 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BloodType], [a].[ConcurrencyStamp], [a].[DateOfBirth], [a].[DeviceId], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[Gender], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OtpCode], [a].[OtpExpiry], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-04-13 00:59:35.505 +02:00 [INF] App Is Running..............
+2026-04-13 00:59:35.994 +02:00 [INF] Executed DbCommand (148ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 00:59:36.296 +02:00 [INF] Now listening on: https://localhost:7286
+2026-04-13 00:59:36.513 +02:00 [INF] Now listening on: http://localhost:5224
+2026-04-13 00:59:36.684 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-13 00:59:36.685 +02:00 [INF] Hosting environment: Development
+2026-04-13 00:59:36.687 +02:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-04-13 00:59:50.826 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7286/api/Authentication/login - application/json 62
+2026-04-13 00:59:51.075 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-04-13 00:59:51.126 +02:00 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(HealthCare.Domain.User.LoginUser) on controller HealthCare.Presentation.Controllers.AuthenticationController (HealthCare.Presentation).
+2026-04-13 00:59:51.582 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BloodType], [a].[ConcurrencyStamp], [a].[DateOfBirth], [a].[DeviceId], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[Gender], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OtpCode], [a].[OtpExpiry], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-04-13 00:59:51.981 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BloodType], [a].[ConcurrencyStamp], [a].[DateOfBirth], [a].[DeviceId], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[Gender], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OtpCode], [a].[OtpExpiry], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-04-13 00:59:52.185 +02:00 [INF] Executed DbCommand (96ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @userId
+2026-04-13 00:59:52.268 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BloodType], [a].[ConcurrencyStamp], [a].[DateOfBirth], [a].[DeviceId], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[Gender], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OtpCode], [a].[OtpExpiry], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-04-13 00:59:52.346 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @userId
+2026-04-13 00:59:52.425 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BloodType], [a].[ConcurrencyStamp], [a].[DateOfBirth], [a].[DeviceId], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[Gender], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OtpCode], [a].[OtpExpiry], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-04-13 00:59:52.807 +02:00 [INF] Executed DbCommand (83ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([Id], [CreateDate], [ExpireDate], [Token], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-04-13 00:59:52.848 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`4[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-13 00:59:52.907 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation) in 1770.2222ms
+2026-04-13 00:59:52.912 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.AuthenticationController.Login (HealthCare.Presentation)'
+2026-04-13 00:59:52.925 +02:00 [INF] HTTP POST /api/Authentication/login responded 200 in 2021.2730 ms
+2026-04-13 00:59:52.950 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7286/api/Authentication/login - 200 null application/json; charset=utf-8 2146.0366ms
+2026-04-13 01:00:36.140 +02:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:00:41.724 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7286/api/Medicine/Add - application/json 196
+2026-04-13 01:00:41.873 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MedicineController.Add (HealthCare.Presentation)'
+2026-04-13 01:00:41.885 +02:00 [INF] Route matched with {action = "Add", controller = "Medicine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(AddMedicineDto) on controller HealthCare.Presentation.Controllers.MedicineController (HealthCare.Presentation).
+2026-04-13 01:00:42.071 +02:00 [INF] Executed DbCommand (97ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Medicines] ([Id], [CreatedAt], [Dosage], [EndDate], [Frequency], [IsActive], [Name], [Notes], [ReminderTimesJson], [StartDate], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2026-04-13 01:00:42.179 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[MedicineResponseDto, HealthCare.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-13 01:00:42.598 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MedicineController.Add (HealthCare.Presentation) in 710.5585ms
+2026-04-13 01:00:42.606 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MedicineController.Add (HealthCare.Presentation)'
+2026-04-13 01:00:42.610 +02:00 [INF] HTTP POST /api/Medicine/Add responded 200 in 879.3621 ms
+2026-04-13 01:00:42.621 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7286/api/Medicine/Add - 200 null application/json; charset=utf-8 896.356ms
+2026-04-13 01:01:06.084 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7286/api/Medicine/GetActive - application/json 196
+2026-04-13 01:01:06.146 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetActive (HealthCare.Presentation)'
+2026-04-13 01:01:06.160 +02:00 [INF] Route matched with {action = "GetActive", controller = "Medicine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetActive() on controller HealthCare.Presentation.Controllers.MedicineController (HealthCare.Presentation).
+2026-04-13 01:01:06.285 +02:00 [INF] Executed DbCommand (89ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[UserId] = @userId AND [m].[IsActive] = CAST(1 AS bit)
+ORDER BY [m].[CreatedAt] DESC
+2026-04-13 01:01:06.300 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[HealthCare.Domain.Entities.Medicine, HealthCare.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[MedicineResponseDto, HealthCare.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-13 01:01:06.305 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MedicineController.GetActive (HealthCare.Presentation) in 141.3571ms
+2026-04-13 01:01:06.336 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetActive (HealthCare.Presentation)'
+2026-04-13 01:01:06.337 +02:00 [INF] HTTP GET /api/Medicine/GetActive responded 200 in 247.2512 ms
+2026-04-13 01:01:06.341 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7286/api/Medicine/GetActive - 200 null application/json; charset=utf-8 256.5922ms
+2026-04-13 01:01:17.053 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7286/api/Medicine/GetCompleted - application/json 196
+2026-04-13 01:01:17.231 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetCompleted (HealthCare.Presentation)'
+2026-04-13 01:01:17.246 +02:00 [INF] Route matched with {action = "GetCompleted", controller = "Medicine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCompleted() on controller HealthCare.Presentation.Controllers.MedicineController (HealthCare.Presentation).
+2026-04-13 01:01:17.360 +02:00 [INF] Executed DbCommand (76ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[UserId] = @userId AND [m].[IsActive] = CAST(0 AS bit)
+ORDER BY [m].[CreatedAt] DESC
+2026-04-13 01:01:17.378 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[HealthCare.Domain.Entities.Medicine, HealthCare.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[MedicineResponseDto, HealthCare.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-13 01:01:17.381 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MedicineController.GetCompleted (HealthCare.Presentation) in 132.3317ms
+2026-04-13 01:01:17.394 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetCompleted (HealthCare.Presentation)'
+2026-04-13 01:01:17.397 +02:00 [INF] HTTP GET /api/Medicine/GetCompleted responded 200 in 340.5834 ms
+2026-04-13 01:01:17.401 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7286/api/Medicine/GetCompleted - 200 null application/json; charset=utf-8 348.4277ms
+2026-04-13 01:01:36.306 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:01:36.951 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7286/api/Medicine/getActive - application/json 196
+2026-04-13 01:01:36.957 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetActive (HealthCare.Presentation)'
+2026-04-13 01:01:36.970 +02:00 [INF] Route matched with {action = "GetActive", controller = "Medicine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetActive() on controller HealthCare.Presentation.Controllers.MedicineController (HealthCare.Presentation).
+2026-04-13 01:01:37.047 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[UserId] = @userId AND [m].[IsActive] = CAST(1 AS bit)
+ORDER BY [m].[CreatedAt] DESC
+2026-04-13 01:01:37.052 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[HealthCare.Domain.Entities.Medicine, HealthCare.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[MedicineResponseDto, HealthCare.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-13 01:01:37.054 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MedicineController.GetActive (HealthCare.Presentation) in 81.4379ms
+2026-04-13 01:01:37.057 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetActive (HealthCare.Presentation)'
+2026-04-13 01:01:37.060 +02:00 [INF] HTTP GET /api/Medicine/getActive responded 200 in 103.8058 ms
+2026-04-13 01:01:37.063 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7286/api/Medicine/getActive - 200 null application/json; charset=utf-8 111.4852ms
+2026-04-13 01:02:10.300 +02:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7286/api/Medicine/MarkCompleted/id=7afb79fd-286e-4ee8-b971-435e32b678c2 - application/json 196
+2026-04-13 01:02:10.307 +02:00 [INF] HTTP PUT /api/Medicine/MarkCompleted/id=7afb79fd-286e-4ee8-b971-435e32b678c2 responded 404 in 0.8978 ms
+2026-04-13 01:02:10.309 +02:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7286/api/Medicine/MarkCompleted/id=7afb79fd-286e-4ee8-b971-435e32b678c2 - 404 0 null 9.1262ms
+2026-04-13 01:02:10.321 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: PUT https://localhost:7286/api/Medicine/MarkCompleted/id=7afb79fd-286e-4ee8-b971-435e32b678c2, Response status code: 404
+2026-04-13 01:02:36.396 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:03:00.763 +02:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7286/api/Medicine/MarkCompleted/7afb79fd-286e-4ee8-b971-435e32b678c2 - application/json 196
+2026-04-13 01:03:00.770 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MedicineController.MarkCompleted (HealthCare.Presentation)'
+2026-04-13 01:03:00.799 +02:00 [INF] Route matched with {action = "MarkCompleted", controller = "Medicine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MarkCompleted(System.Guid) on controller HealthCare.Presentation.Controllers.MedicineController (HealthCare.Presentation).
+2026-04-13 01:03:00.943 +02:00 [INF] Executed DbCommand (94ms) [Parameters=[@medicineId='?' (DbType = Guid), @userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[Id] = @medicineId AND [m].[UserId] = @userId
+2026-04-13 01:03:01.063 +02:00 [INF] Executed DbCommand (81ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Medicines] SET [IsActive] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-04-13 01:03:01.086 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-13 01:03:01.113 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MedicineController.MarkCompleted (HealthCare.Presentation) in 310.1505ms
+2026-04-13 01:03:01.147 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MedicineController.MarkCompleted (HealthCare.Presentation)'
+2026-04-13 01:03:01.149 +02:00 [INF] HTTP PUT /api/Medicine/MarkCompleted/7afb79fd-286e-4ee8-b971-435e32b678c2 responded 200 in 379.1908 ms
+2026-04-13 01:03:01.151 +02:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7286/api/Medicine/MarkCompleted/7afb79fd-286e-4ee8-b971-435e32b678c2 - 200 null application/json; charset=utf-8 388.2605ms
+2026-04-13 01:03:25.438 +02:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7286/api/Medicine/GetCompleted - application/json 196
+2026-04-13 01:03:25.444 +02:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-04-13 01:03:25.449 +02:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-04-13 01:03:25.451 +02:00 [INF] HTTP PUT /api/Medicine/GetCompleted responded 405 in 7.2172 ms
+2026-04-13 01:03:25.455 +02:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7286/api/Medicine/GetCompleted - 405 0 null 16.0451ms
+2026-04-13 01:03:30.897 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7286/api/Medicine/GetCompleted - application/json 196
+2026-04-13 01:03:30.900 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetCompleted (HealthCare.Presentation)'
+2026-04-13 01:03:30.901 +02:00 [INF] Route matched with {action = "GetCompleted", controller = "Medicine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCompleted() on controller HealthCare.Presentation.Controllers.MedicineController (HealthCare.Presentation).
+2026-04-13 01:03:30.978 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[UserId] = @userId AND [m].[IsActive] = CAST(0 AS bit)
+ORDER BY [m].[CreatedAt] DESC
+2026-04-13 01:03:30.984 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[HealthCare.Domain.Entities.Medicine, HealthCare.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[MedicineResponseDto, HealthCare.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-13 01:03:30.986 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MedicineController.GetCompleted (HealthCare.Presentation) in 82.0932ms
+2026-04-13 01:03:30.989 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetCompleted (HealthCare.Presentation)'
+2026-04-13 01:03:30.990 +02:00 [INF] HTTP GET /api/Medicine/GetCompleted responded 200 in 90.8292 ms
+2026-04-13 01:03:30.993 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7286/api/Medicine/GetCompleted - 200 null application/json; charset=utf-8 95.8625ms
+2026-04-13 01:03:36.478 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:03:42.614 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7286/api/Medicine/GetDueReminders - application/json 196
+2026-04-13 01:03:42.618 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetDueReminders (HealthCare.Presentation)'
+2026-04-13 01:03:42.631 +02:00 [INF] Route matched with {action = "GetDueReminders", controller = "Medicine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDueReminders() on controller HealthCare.Presentation.Controllers.MedicineController (HealthCare.Presentation).
+2026-04-13 01:03:42.711 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:03:42.717 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MedicineReminderNotificationDto, HealthCare.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-13 01:03:42.728 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MedicineController.GetDueReminders (HealthCare.Presentation) in 94.0562ms
+2026-04-13 01:03:42.734 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetDueReminders (HealthCare.Presentation)'
+2026-04-13 01:03:42.739 +02:00 [INF] HTTP GET /api/Medicine/GetDueReminders responded 200 in 121.1355 ms
+2026-04-13 01:03:42.742 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7286/api/Medicine/GetDueReminders - 200 null application/json; charset=utf-8 128.0141ms
+2026-04-13 01:04:02.687 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7286/api/Medicine/Add - application/json 197
+2026-04-13 01:04:02.699 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MedicineController.Add (HealthCare.Presentation)'
+2026-04-13 01:04:02.701 +02:00 [INF] Route matched with {action = "Add", controller = "Medicine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(AddMedicineDto) on controller HealthCare.Presentation.Controllers.MedicineController (HealthCare.Presentation).
+2026-04-13 01:04:02.838 +02:00 [INF] Executed DbCommand (128ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Medicines] ([Id], [CreatedAt], [Dosage], [EndDate], [Frequency], [IsActive], [Name], [Notes], [ReminderTimesJson], [StartDate], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2026-04-13 01:04:02.844 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[MedicineResponseDto, HealthCare.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-13 01:04:02.847 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MedicineController.Add (HealthCare.Presentation) in 142.2567ms
+2026-04-13 01:04:02.860 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MedicineController.Add (HealthCare.Presentation)'
+2026-04-13 01:04:02.861 +02:00 [INF] HTTP POST /api/Medicine/Add responded 200 in 163.4295 ms
+2026-04-13 01:04:02.864 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7286/api/Medicine/Add - 200 null application/json; charset=utf-8 177.1845ms
+2026-04-13 01:04:34.193 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7286/api/Medicine/GetDueReminders - application/json 197
+2026-04-13 01:04:34.197 +02:00 [INF] Executing endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetDueReminders (HealthCare.Presentation)'
+2026-04-13 01:04:34.199 +02:00 [INF] Route matched with {action = "GetDueReminders", controller = "Medicine"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDueReminders() on controller HealthCare.Presentation.Controllers.MedicineController (HealthCare.Presentation).
+2026-04-13 01:04:34.280 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:04:34.298 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[MedicineReminderNotificationDto, HealthCare.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-13 01:04:34.305 +02:00 [INF] Executed action HealthCare.Presentation.Controllers.MedicineController.GetDueReminders (HealthCare.Presentation) in 98.5229ms
+2026-04-13 01:04:34.311 +02:00 [INF] Executed endpoint 'HealthCare.Presentation.Controllers.MedicineController.GetDueReminders (HealthCare.Presentation)'
+2026-04-13 01:04:34.313 +02:00 [INF] HTTP GET /api/Medicine/GetDueReminders responded 200 in 116.3246 ms
+2026-04-13 01:04:34.321 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7286/api/Medicine/GetDueReminders - 200 null application/json; charset=utf-8 128.6646ms
+2026-04-13 01:04:36.568 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:05:36.658 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:06:36.745 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:07:36.874 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:08:36.961 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:09:37.053 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:10:37.143 +02:00 [INF] Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
