@@ -274,3 +274,7 @@ WHERE [m].[IsActive] = CAST(1 AS bit)
 SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
 FROM [Medicines] AS [m]
 WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-04-13 01:11:37.231 +02:00 [INF] Executed DbCommand (73ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)

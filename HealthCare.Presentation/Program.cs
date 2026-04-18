@@ -35,13 +35,12 @@ try
     // Single policy that covers both needs — AllowCredentials requires specific origin
     builder.Services.AddCors(options =>
     {
-        options.AddPolicy("AllowFrontend", policy =>
-            policy.WithOrigins(
-                      builder.Configuration["Frontend:BaseUrl"]
-                          ?? "http://localhost:3000")
+        options.AddPolicy("AllowAll", policy =>
+        {
+            policy.AllowAnyOrigin()
                   .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials());
+                  .AllowAnyMethod();
+        });
     });
 
     // ── App Services ──────────────────────────────────────────────────────────
@@ -93,7 +92,7 @@ try
 
     app.UseHttpsRedirection();
 
-    app.UseCors("AllowFrontend"); 
+    app.UseCors("AllowAll");
     app.UseInfreastructureServices();
 
     app.UseAuthentication();

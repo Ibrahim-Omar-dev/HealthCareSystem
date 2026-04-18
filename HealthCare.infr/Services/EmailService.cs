@@ -1,7 +1,8 @@
 ﻿using HealthCare.Domain.Interface;
 using Microsoft.Extensions.Configuration;
-using System.Net;
-using System.Net.Mail;
+using MimeKit;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 
 namespace HealthCare.Infreastructure.Services
 {
@@ -22,29 +23,26 @@ namespace HealthCare.Infreastructure.Services
             var smtpPass = _config["Email:SmtpPass"];
             var fromName = _config["Email:FromName"] ?? "HealthCare";
 
-            var client = new SmtpClient(smtpHost, smtpPort)
-            {
-                EnableSsl = true,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(smtpUser, smtpPass)
-            };
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(fromName, smtpUser));
+            message.To.Add(MailboxAddress.Parse(toEmail));
+            message.Subject = "Password Reset OTP";
 
-            var mail = new MailMessage
+            message.Body = new TextPart("html")
             {
-                From = new MailAddress(smtpUser, fromName),
-                Subject = "Password Reset OTP",
-                Body = $@"
+                Text = $@"
                     <h2>Password Reset</h2>
                     <p>Your OTP:</p>
                     <h1>{otp}</h1>
                     <p>Valid for 10 minutes</p>
-                ",
-                IsBodyHtml = true
+                "
             };
 
-            mail.To.Add(toEmail);
-
-            await client.SendMailAsync(mail);
+            using var client = new SmtpClient();
+            await client.ConnectAsync(smtpHost, smtpPort, SecureSocketOptions.StartTls);
+            await client.AuthenticateAsync(smtpUser, smtpPass);
+            await client.SendAsync(message);
+            await client.DisconnectAsync(true);
         }
     }
 }
