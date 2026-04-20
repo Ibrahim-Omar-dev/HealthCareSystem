@@ -38,12 +38,21 @@ namespace HealthCare.Presentation.Controllers
         }
 
         [HttpGet("GetCritical")]
-        public async Task<IActionResult> GetCritical()
+        public async Task<IActionResult> GetCritical([FromQuery] Guid? userId = null)
         {
-            if (!TryGetCurrentUserId(out Guid userId, out IActionResult? error))
-                return error!;
+            Guid resolvedUserId;
 
-            var alerts = await _alertService.GetCriticalAlertsAsync(userId);
+            if (userId.HasValue)
+            {
+                resolvedUserId = userId.Value;
+            }
+            else
+            {
+                if (!TryGetCurrentUserId(out resolvedUserId, out IActionResult? error))
+                    return error!;
+            }
+
+            var alerts = await _alertService.GetCriticalAlertsAsync(resolvedUserId);
             return Ok(alerts);
         }
 
