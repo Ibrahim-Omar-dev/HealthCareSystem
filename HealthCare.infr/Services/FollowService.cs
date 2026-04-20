@@ -1,5 +1,4 @@
-﻿using HealthCare.Application.Dto;
-using HealthCare.Application.Interfaces;
+﻿
 using HealthCare.Domain.Entities;
 using HealthCare.Domain.Enums;
 using HealthCare.Domain.Interface;
@@ -17,17 +16,9 @@ namespace HealthCare.Infreastructure.Services
             _context = context;
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // SENDER ACTIONS
-        // ─────────────────────────────────────────────────────────────────────
-
-        /// <summary>
-        /// Send a follow request by typing the target user's email.
-        /// </summary>
         public async Task<(bool Success, string Message)> SendRequestByEmailAsync(
             Guid senderId, string receiverEmail)
         {
-            // Find receiver by email
             var receiver = await _context.Users
                 .FirstOrDefaultAsync(u => u.Email == receiverEmail.Trim().ToLower());
 
@@ -37,7 +28,6 @@ namespace HealthCare.Infreastructure.Services
             if (receiver.Id == senderId)
                 return (false, "You cannot send a follow request to yourself.");
 
-            // Check for existing request
             var existing = await _context.FollowRequests
                 .FirstOrDefaultAsync(f => f.SenderId == senderId && f.ReceiverId == receiver.Id);
 
@@ -85,9 +75,6 @@ namespace HealthCare.Infreastructure.Services
             return (true, "Follow relationship removed successfully.");
         }
 
-        /// <summary>
-        /// Get all requests the current user has sent (Pending / Accepted / Rejected).
-        /// </summary>
         public async Task<IEnumerable<FollowRequestResponseDto>> GetSentRequestsAsync(Guid senderId)
         {
             var requests = await _context.FollowRequests
@@ -99,10 +86,6 @@ namespace HealthCare.Infreastructure.Services
 
             return requests.Select(MapToDto);
         }
-
-        /// <summary>
-        /// Get all users the current user is following (accepted requests they sent).
-        /// </summary>
         public async Task<IEnumerable<FollowerDto>> GetWhoIFollowAsync(Guid senderId)
         {
             var accepted = await _context.FollowRequests
@@ -119,15 +102,6 @@ namespace HealthCare.Infreastructure.Services
                 FollowingSince = f.RespondedAt!.Value
             });
         }
-
-        // ─────────────────────────────────────────────────────────────────────
-        // RECEIVER ACTIONS
-        // ─────────────────────────────────────────────────────────────────────
-
-        /// <summary>
-        /// Accept a pending follow request received by the current user.
-        /// After acceptance the sender can view this user's health data.
-        /// </summary>
         public async Task<(bool Success, string Message)> AcceptRequestAsync(Guid requestId, Guid receiverId)
         {
             var request = await _context.FollowRequests
@@ -145,10 +119,6 @@ namespace HealthCare.Infreastructure.Services
             await _context.SaveChangesAsync();
             return (true, "Request accepted. This user can now view your health data.");
         }
-
-        /// <summary>
-        /// Reject a pending follow request.
-        /// </summary>
         public async Task<(bool Success, string Message)> RejectRequestAsync(Guid requestId, Guid receiverId)
         {
             var request = await _context.FollowRequests
@@ -167,9 +137,6 @@ namespace HealthCare.Infreastructure.Services
             return (true, "Request rejected.");
         }
 
-        /// <summary>
-        /// Get all pending requests received by the current user (waiting for response).
-        /// </summary>
         public async Task<IEnumerable<FollowRequestResponseDto>> GetMyPendingRequestsAsync(Guid receiverId)
         {
             var requests = await _context.FollowRequests
@@ -181,10 +148,6 @@ namespace HealthCare.Infreastructure.Services
 
             return requests.Select(MapToDto);
         }
-
-        /// <summary>
-        /// Get all users who follow the current user (accepted requests received).
-        /// </summary>
         public async Task<IEnumerable<FollowerDto>> GetMyFollowersAsync(Guid receiverId)
         {
             var followers = await _context.FollowRequests
@@ -202,10 +165,6 @@ namespace HealthCare.Infreastructure.Services
             });
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // SHARED
-        // ─────────────────────────────────────────────────────────────────────
-
         public async Task<bool> IsFollowingAsync(Guid senderId, Guid receiverId)
         {
             return await _context.FollowRequests
@@ -215,9 +174,6 @@ namespace HealthCare.Infreastructure.Services
                     f.Status == FollowRequestStatus.Accepted);
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // PRIVATE
-        // ─────────────────────────────────────────────────────────────────────
 
         private static FollowRequestResponseDto MapToDto(FollowRequest f) => new()
         {
@@ -225,6 +181,7 @@ namespace HealthCare.Infreastructure.Services
             SenderId = f.SenderId,
             SenderName = f.Sender?.DisplayName ?? string.Empty,
             SenderEmail = f.Sender?.Email ?? string.Empty,
+            ReceiverEmail= f.Receiver?.Email ?? string.Empty,
             ReceiverId = f.ReceiverId,
             ReceiverName = f.Receiver?.DisplayName ?? string.Empty,
             Status = f.Status.ToString(),
