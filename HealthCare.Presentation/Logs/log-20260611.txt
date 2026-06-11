@@ -1,0 +1,72 @@
+2026-06-11 20:37:39.606 +03:00 [INF] App Is Building...........
+2026-06-11 20:37:46.753 +03:00 [INF] User profile is available. Using 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-11 20:37:55.173 +03:00 [INF] Executed DbCommand (199ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-06-11 20:37:55.414 +03:00 [INF] Executed DbCommand (78ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-06-11 20:37:55.495 +03:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-06-11 20:37:55.576 +03:00 [INF] Executed DbCommand (74ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @normalizedName
+2026-06-11 20:37:55.730 +03:00 [INF] Executed DbCommand (78ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BloodType], [a].[ConcurrencyStamp], [a].[DateOfBirth], [a].[DeviceId], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[Gender], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OtpCode], [a].[OtpExpiry], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @normalizedEmail
+2026-06-11 20:37:56.835 +03:00 [INF] App Is Running..............
+2026-06-11 20:37:56.949 +03:00 [INF] Creating key {a88e98f9-2082-418e-9495-3ef8901f8240} with creation date 2026-06-11 17:37:56Z, activation date 2026-06-11 17:37:56Z, and expiration date 2026-09-09 17:37:56Z.
+2026-06-11 20:37:56.977 +03:00 [INF] Writing data to file 'C:\Users\eltanany shop\AppData\Local\ASP.NET\DataProtection-Keys\key-a88e98f9-2082-418e-9495-3ef8901f8240.xml'.
+2026-06-11 20:37:57.481 +03:00 [INF] Executed DbCommand (76ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-06-11 20:37:57.796 +03:00 [INF] Now listening on: https://localhost:7286
+2026-06-11 20:37:57.799 +03:00 [INF] Now listening on: http://localhost:5224
+2026-06-11 20:37:57.982 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-11 20:37:57.984 +03:00 [INF] Hosting environment: Development
+2026-06-11 20:37:57.985 +03:00 [INF] Content root path: E:\HealthCareSystem\HealthCare.Presentation
+2026-06-11 20:38:58.436 +03:00 [INF] Executed DbCommand (75ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedAt], [m].[Dosage], [m].[EndDate], [m].[Frequency], [m].[IsActive], [m].[Name], [m].[Notes], [m].[ReminderTimesJson], [m].[StartDate], [m].[UserId]
+FROM [Medicines] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+2026-06-11 20:39:00.282 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/ - null null
+2026-06-11 20:39:10.983 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-06-11 20:39:11.014 +03:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2026-06-11 20:39:11.018 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-06-11 20:39:11.023 +03:00 [INF] HTTP GET / responded 302 in 245.1002 ms
+2026-06-11 20:39:11.048 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/ - 302 null null 10794.2865ms
+2026-06-11 20:39:11.085 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger - null null
+2026-06-11 20:39:11.106 +03:00 [INF] HTTP GET /swagger responded 301 in 3.9224 ms
+2026-06-11 20:39:11.114 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger - 301 null null 28.8903ms
+2026-06-11 20:39:11.128 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - null null
+2026-06-11 20:39:11.346 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 209.1458 ms
+2026-06-11 20:39:11.352 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - 200 null text/html;charset=utf-8 224.4833ms
+2026-06-11 20:39:12.144 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - null null
+2026-06-11 20:39:12.144 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.css - null null
+2026-06-11 20:39:12.158 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - null null
+2026-06-11 20:39:12.164 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-11 20:39:12.204 +03:00 [INF] HTTP GET /swagger/index.css responded 200 in 50.2054 ms
+2026-06-11 20:39:12.208 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.css - 200 152 text/css 63.5693ms
+2026-06-11 20:39:12.217 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - null null
+2026-06-11 20:39:12.226 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-11 20:39:12.226 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - null null
+2026-06-11 20:39:12.228 +03:00 [INF] HTTP GET /swagger/index.js responded 200 in 5.1788 ms
+2026-06-11 20:39:12.241 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - 200 null application/javascript;charset=utf-8 23.9124ms
+2026-06-11 20:39:12.270 +03:00 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 120.6939 ms
+2026-06-11 20:39:12.276 +03:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 97.9612 ms
+2026-06-11 20:39:12.331 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui.css - 200 26248 text/css 186.1119ms
+2026-06-11 20:39:12.307 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - 200 14951 application/javascript; charset=utf-8 80.3425ms
+2026-06-11 20:39:12.343 +03:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 177.2896 ms
+2026-06-11 20:39:12.353 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-standalone-preset.js - 200 77848 text/javascript 189.0559ms
+2026-06-11 20:39:12.393 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/swagger-ui-bundle.js - 200 424871 text/javascript 235.3234ms
+2026-06-11 20:39:12.734 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - 200 null text/javascript; charset=UTF-8 507.0761ms
+2026-06-11 20:39:17.737 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - null null
+2026-06-11 20:39:17.834 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 92.7105 ms
+2026-06-11 20:39:17.839 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 102.7658ms
