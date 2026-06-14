@@ -27,39 +27,39 @@ namespace HealthCare.Infreastructure.DependencyInjection
     public static class ServicesContainer
     {
         public static IServiceCollection AddInfreastructureServices(
-            this IServiceCollection services,
-            IConfiguration config)
+        this IServiceCollection services,
+        IConfiguration config)
         {
             services.AddDbContext<AppDbContext>(option =>
-                option.UseSqlServer(
-                    config.GetConnectionString("DefaultConnection"),
-                    sqloption =>
-                    {
-                        sqloption.MigrationsAssembly(typeof(AppDbContext).Assembly.GetName().Name);
-                        sqloption.EnableRetryOnFailure();
-                    }));
-
-
-            services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>  // <-- both typed to Guid
+            option.UseSqlServer(
+            config.GetConnectionString("DefaultConnection"),
+            sqloption =>
             {
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequiredLength = 6;
-                options.Password.RequiredUniqueChars = 1;
+                sqloption.MigrationsAssembly(typeof(AppDbContext).Assembly.GetName().Name);
+                sqloption.EnableRetryOnFailure();
+            }));
 
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                options.Lockout.MaxFailedAccessAttempts = 5;
-                options.Lockout.AllowedForNewUsers = true;
 
-                options.User.RequireUniqueEmail = true;
-                options.User.AllowedUserNameCharacters = null;
+        services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>
+        {
+            options.Password.RequireDigit = true;
+            options.Password.RequireLowercase = true;
+            options.Password.RequiredLength = 6;
+            options.Password.RequiredUniqueChars = 1;
 
-                options.SignIn.RequireConfirmedEmail = false;
-                options.SignIn.RequireConfirmedPhoneNumber = false;
-            })
-.AddRoles<IdentityRole<Guid>>()           // <-- Guid
-.AddEntityFrameworkStores<AppDbContext>()
-.AddDefaultTokenProviders();
+            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            options.Lockout.MaxFailedAccessAttempts = 5;
+            options.Lockout.AllowedForNewUsers = true;
+
+            options.User.RequireUniqueEmail = true;
+            options.User.AllowedUserNameCharacters = null;
+
+            options.SignIn.RequireConfirmedEmail = false;
+            options.SignIn.RequireConfirmedPhoneNumber = false;
+        })
+        .AddRoles<IdentityRole<Guid>>()
+        .AddEntityFrameworkStores<AppDbContext>()
+        .AddDefaultTokenProviders();
 
             var jwtSettings = config.GetSection("JwtSettings");
             var secretKey = jwtSettings["SecretKey"];
@@ -76,6 +76,7 @@ namespace HealthCare.Infreastructure.DependencyInjection
             {
                 options.SaveToken = true;
                 options.RequireHttpsMetadata = false;
+
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -86,7 +87,8 @@ namespace HealthCare.Infreastructure.DependencyInjection
 
                     ValidIssuer = issuer,
                     ValidAudience = audience,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(secretKey!))
                 };
 
                 options.Events = new JwtBearerEvents
@@ -95,8 +97,9 @@ namespace HealthCare.Infreastructure.DependencyInjection
                     {
                         if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
                         {
-                            context.Response.Headers.Add("Token-Expired", "true");
+                            context.Response.Headers["Token-Expired"] = "true";
                         }
+
                         return Task.CompletedTask;
                     },
                     OnTokenValidated = context =>
@@ -125,8 +128,31 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<IFollowService, FollowService>();
             services.AddScoped<IMedicineService, MedicineService>();
 
-            services.AddHostedService<MedicineReminderJob>();
+            // Python ML Service for vitals prediction
+            services.AddHttpClient("MLService", client =>
+            {
+                var baseUrl = config["MLService:BaseUrl"]
+                              ?? throw new InvalidOperationException("MLService:BaseUrl is missing");
 
+                client.BaseAddress = new Uri(baseUrl);
+                client.Timeout = TimeSpan.FromSeconds(30);
+            });
+
+            services.AddScoped<IMLService, MLService>();
+
+            // Hugging Face / Gradio Image ML Service
+            services.AddHttpClient("ImageMLService", client =>
+            {
+                var baseUrl = config["HuggingFaceImageML:BaseUrl"]
+                              ?? throw new InvalidOperationException("HuggingFaceImageML:BaseUrl is missing");
+
+                client.BaseAddress = new Uri(baseUrl);
+                client.Timeout = TimeSpan.FromMinutes(5);
+            });
+
+            services.AddScoped<IImageMLService, ImageMLService>();
+
+            services.AddHostedService<MedicineReminderJob>();
 
             return services;
         }
@@ -137,4 +163,6 @@ namespace HealthCare.Infreastructure.DependencyInjection
             return app;
         }
     }
+
+
 }

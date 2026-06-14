@@ -21,4 +21,13 @@ Thumbs.db
 *.db
 
 ## Local settings
+appsettings.json
 appsettings.Development.json
+
+## Publish / Azure secrets
+publish/
+*.PublishSettings
+*.pubxml
+*.pubxml.user
+*.publishsettings
+HealthCare.Presentation/Logs/
