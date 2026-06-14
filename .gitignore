@@ -1,0 +1,33 @@
+## Visual Studio
+.vs/
+*.user
+*.suo
+
+## Build folders
+bin/
+obj/
+
+## Rider
+.idea/
+
+## Logs
+*.log
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## EF migrations temp
+*.db
+
+## Local settings
+appsettings.json
+appsettings.Development.json
+
+## Publish / Azure secrets
+publish/
+*.PublishSettings
+*.pubxml
+*.pubxml.user
+*.publishsettings
+HealthCare.Presentation/Logs/
