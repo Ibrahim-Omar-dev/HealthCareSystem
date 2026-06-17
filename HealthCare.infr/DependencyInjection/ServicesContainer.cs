@@ -127,6 +127,7 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<IDeviceService, DeviceService>();
             services.AddScoped<IFollowService, FollowService>();
             services.AddScoped<IMedicineService, MedicineService>();
+            services.AddScoped<ILocationService, LocationService>();
 
             // Python ML Service for vitals prediction
             services.AddHttpClient("MLService", client =>

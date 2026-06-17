@@ -1,4 +1,4 @@
-﻿using HealthCare.Application.DTOs.ML;
+﻿using HealthCare.Application.Dto.ML;
 using HealthCare.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -4,6 +4,7 @@ using HealthCare.Infreastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthCare.Infreastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260617082851_AddLocation")]
+    partial class AddLocation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -295,10 +298,10 @@ namespace HealthCare.Infreastructure.Migrations
                     b.Property<string>("fall_type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("lat")
+                    b.Property<double>("lat")
                         .HasColumnType("float");
 
-                    b.Property<double?>("lng")
+                    b.Property<double>("lng")
                         .HasColumnType("float");
 
                     b.Property<double>("resp_rate")

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HealthCare.Application.DTOs.ML;
+namespace HealthCare.Application.Dto.ML;
 
 /// <summary>
 /// The raw vitals list returned from GetVitalsForPrediction

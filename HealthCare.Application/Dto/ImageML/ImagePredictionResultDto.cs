@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HealthCare.Application.DTOs.ImageML;
+namespace HealthCare.Application.Dto.ImageML;
 
 public class ImagePredictionResultDto
 {

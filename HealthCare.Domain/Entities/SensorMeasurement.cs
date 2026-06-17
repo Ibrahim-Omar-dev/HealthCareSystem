@@ -18,8 +18,8 @@ namespace HealthCare.Domain.Entities
         public bool fall_detected { get; set; }
         public string? fall_type { get; set; }
 
-        public double lat { get; set; }
-        public double lng { get; set; }
+        public double? lat { get; set; }=null;
+        public double? lng { get; set; }= null;
 
         public DateTime RecordedAt { get; set; } = DateTime.UtcNow;
 
