@@ -1,6 +1,6 @@
 ﻿using HealthCare.Application.Dto.LocationDTOS;
 using HealthCare.Application.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthCare.Presentation.Controllers
@@ -32,12 +32,11 @@ namespace HealthCare.Presentation.Controllers
             }
 
             [HttpGet("Get")]
+        [AllowAnonymous]
             public async Task<IActionResult> Get()
             {
-                if (!TryGetCurrentUserId(out Guid userId, out IActionResult? error))
-                    return error!;
 
-                var location = await _locationService.GetMyLocationAsync(userId);
+                var location = await _locationService.GetMyLocationAsync();
 
                 if (location is null)
                     return NotFound(new

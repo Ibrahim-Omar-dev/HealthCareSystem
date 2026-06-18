@@ -54,10 +54,10 @@ namespace HealthCare.Infreastructure.Services
             return (true, "Location saved successfully.", MapToDto(location));
         }
 
-        public async Task<LocationResponseDto?> GetMyLocationAsync(Guid userId)
+        public async Task<LocationResponseDto?> GetMyLocationAsync()
         {
             var location = await _context.UserLocations
-                .FirstOrDefaultAsync(l => l.UserId == userId);
+                .FirstOrDefaultAsync();
 
             return location is null ? null : MapToDto(location);
         }

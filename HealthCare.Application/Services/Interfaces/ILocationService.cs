@@ -5,6 +5,6 @@ namespace HealthCare.Application.Services.Interfaces
     public interface ILocationService
     {
         Task<(bool Success, string Message, LocationResponseDto? Data)> AddLocationAsync(Guid userId, AddLocationDto dto);
-        Task<LocationResponseDto?> GetMyLocationAsync(Guid userId);
+        Task<LocationResponseDto?> GetMyLocationAsync();
     }
 }
