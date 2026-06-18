@@ -1,4 +1,4 @@
-﻿using HealthCare.Application.Dto.Accelerometer;
+using HealthCare.Application.Dto.Accelerometer;
 using HealthCare.Application.Interfaces;
 using HealthCare.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
