@@ -16,7 +16,8 @@ public class AppDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     public DbSet<Device> Devices { get; set; }
     public DbSet<FollowRequest> FollowRequests { get; set; }
     public DbSet<Medicine> Medicines { get; set; }
-
+    public DbSet<UserLocation> UserLocations { get; set; }
+    public DbSet<AccelerometerReading> AccelerometerReadings { get; set; }
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder builder)

@@ -104,21 +104,18 @@ namespace HealthCare.Infrastructure.Services.Implementation.Measurement
                 temp = dto.temp,
                 fall_detected = dto.fall_detected,
                 fall_type = dto.fall_type,
-                lat = dto.lat,
-                lng = dto.lng,
+
                 RecordedAt = DateTime.UtcNow
             };
 
             _context.Measurements.Add(measurement);
             await _context.SaveChangesAsync();
 
-            // ✅ FIX: get owner from Devices table not Users
             await _alertService.GenerateAlertsFromMeasurementAsync(measurement, device.UserId);
 
             return (true, "Measurement added successfully.");
         }
 
-        // ── Last Record ───────────────────────────────────────────────────────
 
         public async Task<SensorMeasurement?> GetLastRecordAsync(Guid userId)
         {
@@ -131,9 +128,6 @@ namespace HealthCare.Infrastructure.Services.Implementation.Measurement
                 .FirstOrDefaultAsync();
         }
 
-        // ── Time-Range Queries ────────────────────────────────────────────────
-
-        // ✅ FIX: return type is SensorMeasurement? not SensorMeasurement
         public Task<SensorMeasurement?> GetDataInLast6HoursAsync(Guid userId)
             => GetDataInRangeAsync(userId, hours: 6);
 

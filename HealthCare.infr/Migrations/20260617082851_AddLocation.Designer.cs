@@ -4,6 +4,7 @@ using HealthCare.Infreastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthCare.Infreastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260617082851_AddLocation")]
+    partial class AddLocation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,35 +49,6 @@ namespace HealthCare.Infreastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Devices");
-                });
-
-            modelBuilder.Entity("HealthCare.Domain.Entities.AccelerometerReading", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DeviceId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("ReadingsCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReadingsJson")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RecordedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("SensorOk")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DeviceId");
-
-                    b.ToTable("AccelerometerReadings");
                 });
 
             modelBuilder.Entity("HealthCare.Domain.Entities.Alert", b =>
@@ -324,6 +298,12 @@ namespace HealthCare.Infreastructure.Migrations
                     b.Property<string>("fall_type")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("lat")
+                        .HasColumnType("float");
+
+                    b.Property<double>("lng")
+                        .HasColumnType("float");
+
                     b.Property<double>("resp_rate")
                         .HasColumnType("float");
 
@@ -530,17 +510,6 @@ namespace HealthCare.Infreastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("HealthCare.Domain.Entities.AccelerometerReading", b =>
-                {
-                    b.HasOne("Device", "Device")
-                        .WithMany()
-                        .HasForeignKey("DeviceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Device");
                 });
 
             modelBuilder.Entity("HealthCare.Domain.Entities.Alert", b =>

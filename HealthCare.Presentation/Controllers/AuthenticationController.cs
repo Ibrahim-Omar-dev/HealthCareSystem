@@ -14,7 +14,7 @@ namespace HealthCare.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthenticationController : ControllerBase
+    public class AuthenticationController : BaseApiController
     {
         private readonly IAuthenticationServices authenticationService;
         private readonly IConfiguration _config;

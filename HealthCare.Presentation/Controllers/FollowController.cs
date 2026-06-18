@@ -8,7 +8,7 @@ namespace HealthCare.Presentation.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class FollowController : ControllerBase
+    public class FollowController : BaseApiController
     {
         private readonly IFollowService _followService;
 
@@ -115,28 +115,7 @@ namespace HealthCare.Presentation.Controllers
 
 
 
-        private bool TryGetCurrentUserId(out Guid userId, out IActionResult? error)
-        {
-            userId = Guid.Empty;
-            error = null;
-
-            var claim = User.FindFirstValue("userId");
-
-            if (string.IsNullOrEmpty(claim))
-            {
-                error = Unauthorized("User ID not found in token.");
-                return false;
-            }
-
-            if (!Guid.TryParse(claim, out userId))
-            {
-                error = BadRequest("Invalid User ID format.");
-                return false;
-            }
-
-            return true;
-        }
-
+        
         public record SendFollowRequestDto(string ReceiverEmail);
     }
 }

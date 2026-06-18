@@ -1,4 +1,4 @@
-﻿using HealthCare.Application.DTOs.ImageML;
+﻿using HealthCare.Application.Dto.ImageML;
 using HealthCare.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ namespace HealthCare.Presentation.Controllers;
 [ApiController]
 [Route("api/image-ml")]
 [Authorize]
-public class ImageMLController : ControllerBase
+public class ImageMLController : BaseApiController
 {
     private readonly IImageMLService _imageMLService;
     private readonly ILogger<ImageMLController> _logger;

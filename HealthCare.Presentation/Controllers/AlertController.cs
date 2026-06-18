@@ -8,7 +8,7 @@ namespace HealthCare.Presentation.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class AlertController : ControllerBase
+    public class AlertController : BaseApiController
     {
         private readonly IAlertService _alertService;
 
@@ -76,26 +76,6 @@ namespace HealthCare.Presentation.Controllers
             return Ok(new { success = true });
         }
 
-        private bool TryGetCurrentUserId(out Guid userId, out IActionResult? error)
-        {
-            userId = Guid.Empty;
-            error = null;
-
-            var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            if (string.IsNullOrEmpty(claim))
-            {
-                error = Unauthorized("User ID not found in token.");
-                return false;
-            }
-
-            if (!Guid.TryParse(claim, out userId))
-            {
-                error = BadRequest("Invalid User ID format.");
-                return false;
-            }
-
-            return true;
-        }
+        
     }
 }

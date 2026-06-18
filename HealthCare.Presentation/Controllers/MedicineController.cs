@@ -10,7 +10,7 @@ namespace HealthCare.Presentation.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class MedicineController : ControllerBase
+    public class MedicineController : BaseApiController
     {
         private readonly IMedicineService _medicineService;
 
@@ -58,7 +58,6 @@ namespace HealthCare.Presentation.Controllers
             return Ok(medicines);
         }
 
-        /// <summary>Get a single medicine by ID.</summary>
         [HttpGet("Get/{medicineId:guid}")]
         public async Task<IActionResult> GetById(Guid medicineId)
         {
@@ -118,28 +117,6 @@ namespace HealthCare.Presentation.Controllers
             var reminders = await _medicineService.GetDueRemindersAsync();
             return Ok(reminders);
         }
-
-
-        private bool TryGetCurrentUserId(out Guid userId, out IActionResult? error)
-        {
-            userId = Guid.Empty;
-            error = null;
-
-            var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            if (string.IsNullOrEmpty(claim))
-            {
-                error = Unauthorized(new { success = false, message = "User ID not found in token." });
-                return false;
-            }
-
-            if (!Guid.TryParse(claim, out userId))
-            {
-                error = BadRequest(new { success = false, message = "Invalid User ID format." });
-                return false;
-            }
-
-            return true;
-        }
+        
     }
 }

@@ -3,21 +3,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HealthCare.Domain.Entities
 {
-    public class SensorMeasurement
+    public class AccelerometerReading
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         public Guid DeviceId { get; set; }
 
-        public double bpm { get; set; }
-        public double spo2 { get; set; }
-        public double resp_rate { get; set; }
-        public double temp { get; set; }
+        public bool SensorOk { get; set; }
 
-        public bool fall_detected { get; set; }
-        public string? fall_type { get; set; }
+        public string ReadingsJson { get; set; } = "[]";
 
+        public int ReadingsCount { get; set; }
 
         public DateTime RecordedAt { get; set; } = DateTime.UtcNow;
 

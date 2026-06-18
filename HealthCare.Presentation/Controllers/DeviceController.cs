@@ -1,4 +1,5 @@
 ﻿using HealthCare.Domain.Interface;
+using HealthCare.Presentation.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -8,7 +9,7 @@ namespace HealthCare.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
-    public class DeviceController : ControllerBase
+    public class DeviceController : BaseApiController
     {
         private readonly IDeviceService _deviceService;
 

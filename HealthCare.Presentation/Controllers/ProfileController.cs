@@ -11,7 +11,7 @@ namespace HealthCare.Presentation.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class ProfileController : ControllerBase
+    public class ProfileController : BaseApiController
     {
         private readonly AppDbContext context;
         private readonly IMapper mapper;

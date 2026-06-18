@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
-using HealthCare.Application.DTOs.ImageML;
+using HealthCare.Application.Dto.ImageML;
 
 namespace HealthCare.Application.Interfaces;
 

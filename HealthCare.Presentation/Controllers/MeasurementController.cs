@@ -10,7 +10,7 @@ namespace HealthCare.Presentation.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class MeasurementController : ControllerBase
+    public class MeasurementController : BaseApiController
     {
         private readonly IMeasurementService _measurementService;
 
@@ -19,7 +19,6 @@ namespace HealthCare.Presentation.Controllers
             _measurementService = measurementService;
         }
 
-        // ── 1. GET ALL DATA ───────────────────────────────────────────────────
 
         [HttpGet("GetAllData")]
         public async Task<IActionResult> GetAllData()
@@ -32,7 +31,6 @@ namespace HealthCare.Presentation.Controllers
             return Ok(data);
         }
 
-        // ── 2. GET MY DATA ────────────────────────────────────────────────────
 
         [HttpGet("GetMyData")]
         public async Task<IActionResult> GetMyData()
@@ -48,7 +46,6 @@ namespace HealthCare.Presentation.Controllers
             return Ok(data);
         }
 
-        // ── 3. GET USER DATA (follow required) ───────────────────────────────
 
         [HttpGet("GetUserData/{targetUserId:guid}")]
         public async Task<IActionResult> GetUserData(Guid targetUserId)
@@ -79,7 +76,6 @@ namespace HealthCare.Presentation.Controllers
             return Ok(data);
         }
 
-        // ── 4. ADD DATA (ESP32 — no auth) ─────────────────────────────────────
 
         [HttpPost("AddData")]
         [AllowAnonymous]
@@ -93,7 +89,6 @@ namespace HealthCare.Presentation.Controllers
             return Ok(new { success = true, message = result.Message });
         }
 
-        // ── 5. GET LAST RECORD ────────────────────────────────────────────────
 
         [HttpGet("GetLastRecord")]
         public async Task<IActionResult> GetLastRecord([FromQuery] Guid? targetUserId = null)
@@ -117,9 +112,6 @@ namespace HealthCare.Presentation.Controllers
                 : Ok(record);
         }
 
-        // ── 6-10. TIME-RANGE ENDPOINTS ────────────────────────────────────────
-
-        // ✅ FIX: Func returns Task<SensorMeasurement?> not Task<IEnumerable<>>
         [HttpGet("GetDataLast6Hours")]
         public async Task<IActionResult> GetDataLast6Hours([FromQuery] Guid? targetUserId = null)
             => await GetRangeData(targetUserId, _measurementService.GetDataInLast6HoursAsync, "6 hours");
@@ -140,9 +132,6 @@ namespace HealthCare.Presentation.Controllers
         public async Task<IActionResult> GetDataLast7Days([FromQuery] Guid? targetUserId = null)
             => await GetRangeData(targetUserId, _measurementService.GetDataInLast7DaysAsync, "7 days");
 
-        // ── Private Helpers ───────────────────────────────────────────────────
-
-        // ✅ FIX: Func<Guid, Task<SensorMeasurement?>> matches service return type
         private async Task<IActionResult> GetRangeData(
             Guid? targetUserId,
             Func<Guid, Task<SensorMeasurement?>> serviceCall,
@@ -171,27 +160,6 @@ namespace HealthCare.Presentation.Controllers
                 : Ok(record);
         }
 
-        // ✅ FIX: use ClaimTypes.NameIdentifier not "userId"
-        private bool TryGetCurrentUserId(out Guid userId, out IActionResult? error)
-        {
-            userId = Guid.Empty;
-            error = null;
-
-            var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            if (string.IsNullOrEmpty(claim))
-            {
-                error = Unauthorized(new { success = false, message = "User ID not found in token." });
-                return false;
-            }
-
-            if (!Guid.TryParse(claim, out userId))
-            {
-                error = BadRequest(new { success = false, message = "Invalid User ID format." });
-                return false;
-            }
-
-            return true;
-        }
+       
     }
 }

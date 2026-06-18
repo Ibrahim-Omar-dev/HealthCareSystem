@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Json;
 using System.Text.Json;
-using HealthCare.Application.DTOs.ML;
+using HealthCare.Application.Dto.ML;
 using HealthCare.Application.Interfaces;
 using HealthCare.Infreastructure.Data;
 using Microsoft.EntityFrameworkCore;
