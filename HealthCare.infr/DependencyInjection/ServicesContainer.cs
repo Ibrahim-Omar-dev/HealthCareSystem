@@ -4,7 +4,9 @@ using HealthCare.Application.Services.Interfaces;
 using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.Interface;
 using HealthCare.Domain.IRepository;
+using HealthCare.Infrastructure.BackgroundJobs;
 using HealthCare.Infrastructure.Repository;
+using HealthCare.Infrastructure.Services;
 using HealthCare.Infrastructure.Services.Implementation.Measurement;
 using HealthCare.Infreastructure.BackgroundJobs;
 using HealthCare.Infreastructure.Data;
@@ -27,39 +29,38 @@ namespace HealthCare.Infreastructure.DependencyInjection
     public static class ServicesContainer
     {
         public static IServiceCollection AddInfreastructureServices(
-        this IServiceCollection services,
-        IConfiguration config)
+            this IServiceCollection services,
+            IConfiguration config)
         {
             services.AddDbContext<AppDbContext>(option =>
-            option.UseSqlServer(
-            config.GetConnectionString("DefaultConnection"),
-            sqloption =>
+                option.UseSqlServer(
+                    config.GetConnectionString("DefaultConnection"),
+                    sqloption =>
+                    {
+                        sqloption.MigrationsAssembly(typeof(AppDbContext).Assembly.GetName().Name);
+                        sqloption.EnableRetryOnFailure();
+                    }));
+
+            services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>
             {
-                sqloption.MigrationsAssembly(typeof(AppDbContext).Assembly.GetName().Name);
-                sqloption.EnableRetryOnFailure();
-            }));
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
 
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
 
-        services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>
-        {
-            options.Password.RequireDigit = true;
-            options.Password.RequireLowercase = true;
-            options.Password.RequiredLength = 6;
-            options.Password.RequiredUniqueChars = 1;
+                options.User.RequireUniqueEmail = true;
+                options.User.AllowedUserNameCharacters = null;
 
-            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-            options.Lockout.MaxFailedAccessAttempts = 5;
-            options.Lockout.AllowedForNewUsers = true;
-
-            options.User.RequireUniqueEmail = true;
-            options.User.AllowedUserNameCharacters = null;
-
-            options.SignIn.RequireConfirmedEmail = false;
-            options.SignIn.RequireConfirmedPhoneNumber = false;
-        })
-        .AddRoles<IdentityRole<Guid>>()
-        .AddEntityFrameworkStores<AppDbContext>()
-        .AddDefaultTokenProviders();
+                options.SignIn.RequireConfirmedEmail = false;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+            })
+            .AddRoles<IdentityRole<Guid>>()
+            .AddEntityFrameworkStores<AppDbContext>()
+            .AddDefaultTokenProviders();
 
             var jwtSettings = config.GetSection("JwtSettings");
             var secretKey = jwtSettings["SecretKey"];
@@ -129,8 +130,8 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<IMedicineService, MedicineService>();
             services.AddScoped<ILocationService, LocationService>();
             services.AddScoped<IAccelerometerService, AccelerometerService>();
+            services.AddHostedService<AlertCleanupJob>();
 
-            // Python ML Service for vitals prediction
             services.AddHttpClient("MLService", client =>
             {
                 var baseUrl = config["MLService:BaseUrl"]
@@ -142,7 +143,6 @@ namespace HealthCare.Infreastructure.DependencyInjection
 
             services.AddScoped<IMLService, MLService>();
 
-            // Hugging Face / Gradio Image ML Service
             services.AddHttpClient("ImageMLService", client =>
             {
                 var baseUrl = config["HuggingFaceImageML:BaseUrl"]
@@ -153,6 +153,17 @@ namespace HealthCare.Infreastructure.DependencyInjection
             });
 
             services.AddScoped<IImageMLService, ImageMLService>();
+
+            services.AddHttpClient("ActivityMLService", client =>
+            {
+                var baseUrl = config["ActivityMLService:BaseUrl"]
+                              ?? throw new InvalidOperationException("ActivityMLService:BaseUrl is missing");
+
+                client.BaseAddress = new Uri(baseUrl);
+                client.Timeout = TimeSpan.FromMinutes(2);
+            });
+
+            services.AddScoped<IActivityMLService, ActivityMLService>();
 
             services.AddHostedService<MedicineReminderJob>();
 
@@ -165,6 +176,4 @@ namespace HealthCare.Infreastructure.DependencyInjection
             return app;
         }
     }
-
-
 }
