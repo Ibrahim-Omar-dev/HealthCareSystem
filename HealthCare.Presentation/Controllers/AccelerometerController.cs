@@ -36,19 +36,6 @@ namespace HealthCare.Presentation.Controllers
             return Ok(readings);
         }
 
-        [HttpGet("GetLast")]
-        [Authorize]
-        public async Task<IActionResult> GetLast()
-        {
-            if (!TryGetCurrentUserId(out Guid userId, out IActionResult? error))
-                return error!;
-
-            var reading = await _accelerometerService.GetLastReadingAsync(userId);
-
-            if (reading is null)
-                return NotFound(new { success = false, message = "No accelerometer readings found." });
-
-            return Ok(reading);
-        }
+       
     }
 }
