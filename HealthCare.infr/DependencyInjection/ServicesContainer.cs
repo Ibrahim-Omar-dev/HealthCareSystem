@@ -130,6 +130,7 @@ namespace HealthCare.Infreastructure.DependencyInjection
             services.AddScoped<IMedicineService, MedicineService>();
             services.AddScoped<ILocationService, LocationService>();
             services.AddScoped<IAccelerometerService, AccelerometerService>();
+            services.AddScoped<IGoogleAuthService, GoogleAuthService>();
             services.AddHostedService<AlertCleanupJob>();
 
             services.AddHttpClient("MLService", client =>

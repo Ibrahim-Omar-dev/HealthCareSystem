@@ -1,14 +1,13 @@
-﻿using Google.Apis.Auth;
-using HealthCare.Application.Dto.RestPasswordDTo;
+﻿using HealthCare.Application.Dto.RestPasswordDTo;
+using HealthCare.Application.Dto.User;
 using HealthCare.Application.Services.Interfaces.IAuthentication;
 using HealthCare.Domain.Entities.Identity;
 using HealthCare.Domain.Interface;
 using HealthCare.Domain.User;
 using HealthCare.Infreastructure.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Claims;
 
 namespace HealthCare.Presentation.Controllers
 {
@@ -19,22 +18,26 @@ namespace HealthCare.Presentation.Controllers
         private readonly IAuthenticationServices authenticationService;
         private readonly IConfiguration _config;
         private readonly AppDbContext _db;
-        private readonly UserManager<AppUser> _userManager;
+        private readonly IUserManagement userManagement;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ITokenManagement jwttoken;
+        private readonly IGoogleAuthService _googleAuthService;
+
+
 
 
         public AuthenticationController(IAuthenticationServices authenticationService, IConfiguration config,
-                AppDbContext db, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager
-                , ITokenManagement token
+                AppDbContext db, IUserManagement userManagement, SignInManager<AppUser> signInManager
+                , ITokenManagement token, IGoogleAuthService googleAuthService
            )
         {
             this.authenticationService = authenticationService;
             _config = config;
             _db = db;
-            _userManager = userManager;
+            this.userManagement = userManagement;
             _signInManager = signInManager;
             this.jwttoken = token;
+            _googleAuthService = googleAuthService;
         }
         [HttpPost("CreateUser")]
         public async Task<IActionResult> CreateUser(CreateUser createUser)
@@ -87,99 +90,29 @@ namespace HealthCare.Presentation.Controllers
                 message = result.Message
             });
         }
-        [HttpPost("google")]
-        public async Task<IActionResult> GoogleMobileLogin([FromBody] GoogleLoginRequest request)
+        [HttpPost("google-login")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginRequest request)
         {
-            try
+            if (string.IsNullOrWhiteSpace(request.IdToken))
+                return BadRequest(new { success = false, message = "Google ID token is required." });
+
+            var (success, user, message) = await _googleAuthService.LoginOrRegisterAsync(request.IdToken);
+
+            if (!success || user is null)
+                return BadRequest(new { success = false, message });
+
+            var claims = await userManagement.GetUserClaims(user.Email!);
+
+
+            return Ok(new
             {
-                // 1. Verify IdToken with Google
-                var payload = await GoogleJsonWebSignature.ValidateAsync(
-                    request.IdToken,
-                    new GoogleJsonWebSignature.ValidationSettings
-                    {
-                        Audience = new[] { _config["Google:ClientId"] },
-                        ExpirationTimeClockTolerance = TimeSpan.FromMinutes(5)
-                    });
-
-                // 2. Find or create user
-                var user = await _userManager.FindByEmailAsync(payload.Email);
-
-                if (user is null)
-                {
-                    user = new AppUser
-                    {
-                        UserName = payload.Email,
-                        Email = payload.Email,
-                        DisplayName = payload.Name,
-                        EmailConfirmed = true
-                    };
-
-                    var result = await _userManager.CreateAsync(user);
-                    if (!result.Succeeded)
-                        return BadRequest(new
-                        {
-                            message = "Failed to create user",
-                            errors = result.Errors.Select(e => e.Description)
-                        });
-
-                    await _userManager.AddLoginAsync(user, new UserLoginInfo(
-                        "Google", payload.Subject, "Google"));
-                }
-
-                // 3. Build claims
-                var claims = new List<Claim>
-        {
-            new(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new(ClaimTypes.Email,          user.Email          ?? ""),
-            new(ClaimTypes.Name,           user.DisplayName    ?? ""),
-            new("userId",                  user.Id.ToString()),
-            new("gender",                  user.Gender?.ToString()    ?? ""),
-            new("bloodType",               user.BloodType?.ToString() ?? ""),
-            new("dateOfBirth",             user.DateOfBirth?.ToString("yyyy-MM-dd") ?? ""),
-        };
-
-                // 4. Add roles to claims
-                var roles = await _userManager.GetRolesAsync(user);
-                claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
-
-                // 5. ✅ Generate the token string
-                var token = jwttoken.generateToken(claims);
-
-                // 6. ✅ Return the token string not the service
-                return Ok(new
-                {
-                    token,
-                    user = new
-                    {
-                        user.Id,
-                        user.Email,
-                        user.DisplayName,
-                        user.Gender,
-                        user.BloodType,
-                        user.DateOfBirth
-                    }
-                });
-            }
-            catch (InvalidJwtException ex)
-            {
-                return Unauthorized(new
-                {
-                    message = "Invalid Google token",
-                    reason = ex.Message,
-                    clientId = _config["Google:ClientId"]
-                });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Something went wrong", error = ex.Message });
-            }
+                success = true,
+                message,
+                userId = user.Id
+            });
         }
 
-        public class GoogleLoginRequest
-        {
-            [Required]
-            public string IdToken { get; set; } = "";
-        }
 
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequest request)
